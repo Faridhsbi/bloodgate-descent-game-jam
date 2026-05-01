@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://hhdgq02br2cw"]
+
+[ext_resource type="Texture2D" uid="uid://by4litmdqpmrb" path="res://assets/TheUltimateWeaponsPack/Bullet 24x24 Part 10A Free.png" id="1_tex"]
+[ext_resource type="Script" uid="uid://c4slbqt5ppwi" path="res://scripts/void_scythe.gd" id="2_script"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_scythe"]
+radius = 7.0
+
+[node name="VoidScythe" type="Area2D" unique_id=1383709072]
+collision_layer = 4
+collision_mask = 17
+script = ExtResource("2_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1913342440]
+modulate = Color(0.784314, 0.509804, 1, 1)
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("1_tex")
+hframes = 24
+vframes = 15
+frame = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1626521763]
+shape = SubResource("CircleShape2D_scythe")

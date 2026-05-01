@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d3qnf72l8bc6n"
+path="res://.godot/imported/transisi enter my domain.wav-b3a5d30f98867472b8d8aaa81b6355fc.sample"
+
+[deps]
+
+source_file="res://audio/transisi enter my domain.wav"
+dest_files=["res://.godot/imported/transisi enter my domain.wav-b3a5d30f98867472b8d8aaa81b6355fc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bxc0tsmmdwb33"]
+
+[ext_resource type="Texture2D" uid="uid://g1666q2ip2wp" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/side_torch_1.png" id="st_0"]
+[ext_resource type="Texture2D" uid="uid://ccc0dyaatbnxp" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/side_torch_2.png" id="st_1"]
+[ext_resource type="Texture2D" uid="uid://ubcv0n8qdqr8" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/side_torch_3.png" id="st_2"]
+[ext_resource type="Texture2D" uid="uid://vy4pcd3h1il8" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/side_torch_4.png" id="st_3"]
+[ext_resource type="Script" uid="uid://8sotxtu6c8g3" path="res://scripts/items/torch.gd" id="st_script"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_st"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("st_0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("st_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("st_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("st_3")
+}],
+"loop": true,
+"name": &"flicker",
+"speed": 8.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_light"]
+offsets = PackedFloat32Array(0, 0.7)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_light"]
+gradient = SubResource("Gradient_light")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.85, 0.15)
+
+[node name="SideTorch" type="Node2D" unique_id=1837593798]
+script = ExtResource("st_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1625819797]
+sprite_frames = SubResource("SpriteFrames_st")
+animation = &"flicker"
+autoplay = "flicker"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.7, 0.3, 1)
+energy = 0.8
+texture = SubResource("GradientTexture2D_light")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -6)
+amount = 6
+lifetime = 0.6
+randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, -30)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+scale_amount_min = 1.0
+scale_amount_max = 2.0
+color = Color(1, 0.7, 0.2, 1)

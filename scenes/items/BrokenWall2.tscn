@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c5vhgraom6a6p"]
+
+[ext_resource type="Script" uid="uid://bxwx1310pi1bs" path="res://scripts/items/broken_wall.gd" id="1_6eeiq"]
+[ext_resource type="Texture2D" uid="uid://bw5yxohdcj88o" path="res://assets/free-2d-top-down-pixel-dungeon-asset-pack/Tiled_files/broken_wall.png.png" id="2_8yg87"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1omp"]
+size = Vector2(15.000002, 15)
+
+[node name="BrokenWall2" type="StaticBody2D" unique_id=1298522054]
+y_sort_enabled = true
+collision_layer = 16
+script = ExtResource("1_6eeiq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1456722050]
+texture = ExtResource("2_8yg87")
+region_enabled = true
+region_rect = Rect2(48, 304, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1138712367]
+z_index = 1
+y_sort_enabled = true
+shape = SubResource("RectangleShape2D_l1omp")

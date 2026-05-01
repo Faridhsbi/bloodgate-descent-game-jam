@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cfkhdb3aii0ob"]
+
+[ext_resource type="Script" uid="uid://hv13kd28n6w4" path="res://scripts/vampire_boss.gd" id="boss_script"]
+[ext_resource type="Texture2D" uid="uid://b468cds4pwtum" path="res://assets/free-vampire-4-direction-pixel-character-sprite-pack/PNG/Vampires3/Idle/Vampires3_Idle_body.png" id="tex_idle"]
+[ext_resource type="Texture2D" uid="uid://c0x8fa1vgo0fv" path="res://assets/free-vampire-4-direction-pixel-character-sprite-pack/PNG/Vampires3/Idle/Vampires3_Idle_shadow.png" id="tex_shadow"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape_body"]
+radius = 8.0
+height = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape_detect"]
+radius = 643.2519
+
+[sub_resource type="CircleShape2D" id="CircleShape_melee"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape_shadow"]
+radius = 12.0
+
+[node name="VampireBoss" type="CharacterBody2D" unique_id=866154319]
+collision_layer = 4
+collision_mask = 17
+motion_mode = 1
+script = ExtResource("boss_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1979034407]
+position = Vector2(-6, 0)
+texture = ExtResource("tex_idle")
+hframes = 5
+vframes = 4
+
+[node name="ShadowSprite" type="Sprite2D" parent="." unique_id=1063763926]
+visible = false
+modulate = Color(0.2, 0.1, 0.3, 0.6)
+texture = ExtResource("tex_shadow")
+hframes = 12
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=919977603]
+shape = SubResource("CapsuleShape_body")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1991990235]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1442113859]
+shape = SubResource("CircleShape_detect")
+
+[node name="MeleeHitbox" type="Area2D" parent="." unique_id=151574381]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeHitbox" unique_id=1401260739]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape_melee")
+
+[node name="ShadowHitbox" type="Area2D" parent="." unique_id=1447876876]
+visible = false
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShadowHitbox" unique_id=474707296]
+shape = SubResource("CircleShape_shadow")
+
+[node name="HitSfx" type="AudioStreamPlayer2D" parent="." unique_id=673868803]

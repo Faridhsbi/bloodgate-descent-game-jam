@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://be4t2ec6tx3q3"]
+
+[ext_resource type="Script" uid="uid://kwfjw666gphl" path="res://scripts/minion_head.gd" id="head_script"]
+[ext_resource type="PackedScene" uid="uid://cd4mhlmf3r7fk" path="res://scenes/hud/WorldHealthBar.tscn" id="health_bar"]
+[ext_resource type="AudioStream" uid="uid://txgjw1l34sf8" path="res://audio/minion head.wav" id="sfx_minion_head"]
+[ext_resource type="Texture2D" uid="uid://bt8tceb1v2g7r" path="res://assets/free-vampire-4-direction-pixel-character-sprite-pack/PNG/Vampires3/Attack/Vampires3_Attack_head.png" id="tex_head"]
+
+[sub_resource type="CircleShape2D" id="CircleShape_head"]
+radius = 6.0
+
+[node name="MinionHead" type="CharacterBody2D" unique_id=1401364402]
+collision_layer = 4
+collision_mask = 16
+script = ExtResource("head_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1062200607]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("tex_head")
+hframes = 12
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1216725877]
+shape = SubResource("CircleShape_head")
+
+[node name="WorldHealthBar" parent="." unique_id=464157122 instance=ExtResource("health_bar")]
+position = Vector2(0, -11)
+scale = Vector2(0.75, 0.75)
+
+[node name="MoveSfx" type="AudioStreamPlayer2D" parent="." unique_id=1544025504]
+stream = ExtResource("sfx_minion_head")
+volume_db = -10.4
+max_distance = 53.0
+
+[node name="HitSfx" type="AudioStreamPlayer2D" parent="." unique_id=249576217]
+
+[editable path="WorldHealthBar"]

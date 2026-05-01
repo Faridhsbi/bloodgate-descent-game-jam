@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://c6785512vorto"]
+
+[ext_resource type="Script" uid="uid://cqbvcgdvjrigm" path="res://scripts/door.gd" id="1_mg2as"]
+[ext_resource type="Texture2D" uid="uid://b42r2kv8cvoeo" path="res://assets/free-2d-top-down-pixel-dungeon-asset-pack/PNG/doors_lever_chest_animation.png" id="2_mg2as"]
+[ext_resource type="FontFile" uid="uid://cc1eoqnt6rqsf" path="res://font/Pixeled.ttf" id="3_ao1jx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7q0m"]
+size = Vector2(32, 28)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4k7y2"]
+radius = 20.024984
+
+[sub_resource type="LabelSettings" id="LabelSettings_kdo1k"]
+line_spacing = 0.0
+font = ExtResource("3_ao1jx")
+font_size = 5
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Door" type="StaticBody2D" unique_id=667142369]
+collision_layer = 16
+script = ExtResource("1_mg2as")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=77167990]
+texture = ExtResource("2_mg2as")
+hframes = 5
+vframes = 6
+frame = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=439738012]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_y7q0m")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1846031213]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1131727694]
+shape = SubResource("CircleShape2D_4k7y2")
+
+[node name="PromptLabel" type="Label" parent="." unique_id=595375602]
+z_index = 4
+offset_left = -92.0
+offset_top = -44.0
+offset_right = 91.0
+offset_bottom = 11.0
+theme_override_fonts/font = ExtResource("3_ao1jx")
+theme_override_font_sizes/font_size = 4
+text = "[E] UNLOCK"
+label_settings = SubResource("LabelSettings_kdo1k")
+horizontal_alignment = 1
+vertical_alignment = 1

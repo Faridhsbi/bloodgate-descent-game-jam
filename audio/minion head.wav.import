@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://txgjw1l34sf8"
+path="res://.godot/imported/minion head.wav-6fbe925907a3a748313611b0da3ea35e.sample"
+
+[deps]
+
+source_file="res://audio/minion head.wav"
+dest_files=["res://.godot/imported/minion head.wav-6fbe925907a3a748313611b0da3ea35e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

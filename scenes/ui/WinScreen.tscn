@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://bop7ndbktbvht"]
+
+[ext_resource type="Script" uid="uid://pwtyev2lcv4e" path="res://scripts/ui/win_screen.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://cc1eoqnt6rqsf" path="res://font/Pixeled.ttf" id="3_font"]
+[ext_resource type="Texture2D" uid="uid://dod2cldfcao8r" path="res://assets/MenuButton.png" id="MenuButton"]
+[ext_resource type="AudioStream" uid="uid://kxoij1tnv8io" path="res://audio/Goblins_Dance_(Battle).wav" id="WinBgm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("3_font")
+font_size = 15
+font_color = Color(0.31764707, 0.9882353, 0.49411765, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_subtitle"]
+line_spacing = 0.0
+font = ExtResource("3_font")
+font_size = 7
+font_color = Color(0.8117647, 1, 0.4745098, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button"]
+texture = ExtResource("MenuButton")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(690, 454, 1014, 410)
+
+[node name="WinScreen" type="Control" unique_id=1021685732]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Fade" type="ColorRect" parent="." unique_id=554508057]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.012, 0.018, 1)
+
+[node name="Center" type="CenterContainer" parent="." unique_id=648336056]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="NinePatchRect" parent="Center" unique_id=213899676]
+custom_minimum_size = Vector2(300, 166)
+layout_mode = 2
+region_rect = Rect2(128, 32, 16, 15.795)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Margin" type="MarginContainer" parent="Center/Panel" unique_id=1110650849]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 16.0
+offset_right = -20.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="List" type="VBoxContainer" parent="Center/Panel/Margin" unique_id=1493898841]
+layout_mode = 2
+theme_override_constants/separation = -4
+alignment = 1
+
+[node name="Title" type="Label" parent="Center/Panel/Margin/List" unique_id=698166442]
+layout_mode = 2
+text = "DUNGEON CLEARED"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Center/Panel/Margin/List" unique_id=576194280]
+layout_mode = 2
+text = "The vampire falls. The dungeon exhales, and dawn reaches the stone."
+label_settings = SubResource("LabelSettings_subtitle")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer" type="Control" parent="Center/Panel/Margin/List" unique_id=360398642]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="ButtonList" type="VBoxContainer" parent="Center/Panel/Margin/List" unique_id=115072941]
+layout_mode = 2
+theme_override_constants/separation = -14
+
+[node name="Restart" type="Button" parent="Center/Panel/Margin/List/ButtonList" unique_id=314092638]
+custom_minimum_size = Vector2(160, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.31764707, 0.9882353, 0.49411765, 1)
+theme_override_colors/font_hover_color = Color(0.83137256, 0.99607843, 0.47058824, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxTexture_button")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_button")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button")
+theme_override_styles/focus = SubResource("StyleBoxTexture_button")
+text = "REPLAY BOSS"
+
+[node name="MainMenu" type="Button" parent="Center/Panel/Margin/List/ButtonList" unique_id=592402498]
+custom_minimum_size = Vector2(160, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.31764707, 0.9882353, 0.49411765, 1)
+theme_override_colors/font_hover_color = Color(0.83137256, 0.99607843, 0.47058824, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxTexture_button")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_button")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button")
+theme_override_styles/focus = SubResource("StyleBoxTexture_button")
+text = "MAIN MENU"
+
+[node name="Quit" type="Button" parent="Center/Panel/Margin/List/ButtonList" unique_id=4585956]
+custom_minimum_size = Vector2(160, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.31764707, 0.9882353, 0.49411765, 1)
+theme_override_colors/font_hover_color = Color(0.83137256, 0.99607843, 0.47058824, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxTexture_button")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_button")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button")
+theme_override_styles/focus = SubResource("StyleBoxTexture_button")
+text = "QUIT"
+
+[node name="WinBgm" type="AudioStreamPlayer" parent="." unique_id=445049538]
+stream = ExtResource("WinBgm")
+bus = &"BGM"
+
+[connection signal="pressed" from="Center/Panel/Margin/List/ButtonList/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Center/Panel/Margin/List/ButtonList/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Center/Panel/Margin/List/ButtonList/Quit" to="." method="_on_quit_pressed"]

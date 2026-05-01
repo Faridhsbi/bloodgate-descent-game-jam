@@ -1,0 +1,112 @@
+[gd_scene load_steps=15 format=3 uid="uid://cui3vpcpo3hwr"]
+
+[ext_resource type="Texture2D" uid="uid://dnbrmkw6jdepe" path="res://assets/free-vampire-4-direction-pixel-character-sprite-pack/Tiled/Vampires3_Attack_magic.png" id="3_74sio"]
+[ext_resource type="Script" uid="uid://dxuwebr5rok0k" path="res://scripts/prowler.gd" id="prowler_script"]
+[ext_resource type="Texture2D" uid="uid://dff53ici5u53a" path="res://assets/free-vampire-4-direction-pixel-character-sprite-pack/PNG/Vampires3/Attack/Vampires3_Attack_magic.png" id="tex_magic"]
+[ext_resource type="AudioStream" uid="uid://88n1duqf8aev" path="res://audio/prowler_haunt.wav" id="sfx_haunt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_af1qh"]
+atlas = ExtResource("3_74sio")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1enbb"]
+atlas = ExtResource("3_74sio")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45ol7"]
+atlas = ExtResource("3_74sio")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bv62"]
+atlas = ExtResource("3_74sio")
+region = Rect2(320, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo2sk"]
+atlas = ExtResource("3_74sio")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fn14"]
+atlas = ExtResource("3_74sio")
+region = Rect2(320, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r548"]
+atlas = ExtResource("3_74sio")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0b1m"]
+atlas = ExtResource("3_74sio")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i7wxm"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_af1qh")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_1enbb")
+}],
+"loop": true,
+"name": &"haunt_down",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_45ol7")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_3bv62")
+}],
+"loop": true,
+"name": &"haunt_left",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_fo2sk")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_0fn14")
+}],
+"loop": true,
+"name": &"haunt_right",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_5r548")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_m0b1m")
+}],
+"loop": true,
+"name": &"haunt_up",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape_prowler"]
+radius = 6.0
+
+[node name="ProwlerProjectile" type="Area2D" unique_id=1812005143]
+collision_layer = 4
+collision_mask = 17
+script = ExtResource("prowler_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1593619884]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("tex_magic")
+hframes = 12
+vframes = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=873036327]
+sprite_frames = SubResource("SpriteFrames_i7wxm")
+animation = &"haunt_down"
+frame_progress = 0.9068957
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1767551035]
+shape = SubResource("CircleShape_prowler")
+
+[node name="HauntSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("sfx_haunt")
+bus = &"SFX"
+autoplay = true

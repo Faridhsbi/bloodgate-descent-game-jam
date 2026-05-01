@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://b6vuu6qaf2ar0"]
+
+[ext_resource type="Texture2D" uid="uid://c8gw5g1oj6ujh" path="res://assets/16x16 Tileset/16x16 Tileset/TileSet.png" id="2_8yi2u"]
+[ext_resource type="Script" uid="uid://cefgx24j88fsv" path="res://scripts/items/power_flask.gd" id="power_flask_script"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yeoss"]
+atlas = ExtResource("2_8yi2u")
+region = Rect2(192, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clexr"]
+atlas = ExtResource("2_8yi2u")
+region = Rect2(192, 81, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrsiw"]
+atlas = ExtResource("2_8yi2u")
+region = Rect2(192, 82, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_flask"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_yeoss")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_clexr")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_nrsiw")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_yeoss")
+}],
+"loop": true,
+"name": &"shimmer",
+"speed": 30.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_flask"]
+
+[node name="PowerFlask" type="Area2D" unique_id=1303089294]
+collision_layer = 4
+script = ExtResource("power_flask_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=258497572]
+sprite_frames = SubResource("SpriteFrames_flask")
+animation = &"shimmer"
+autoplay = "shimmer"
+frame_progress = 0.50833106
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2133241971]
+shape = SubResource("CircleShape2D_flask")

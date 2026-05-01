@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flag/flag_1.png" id="flag_0"]
+[ext_resource type="Texture2D" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flag/flag_2.png" id="flag_1"]
+[ext_resource type="Texture2D" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flag/flag_3.png" id="flag_2"]
+[ext_resource type="Texture2D" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flag/flag_4.png" id="flag_3"]
+[ext_resource type="Script" path="res://scripts/items/flag.gd" id="flag_script"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_flag"]
+animations = [{
+"frames": [{"duration": 1.0, "texture": ExtResource("flag_0")}, {"duration": 1.0, "texture": ExtResource("flag_1")}, {"duration": 1.0, "texture": ExtResource("flag_2")}, {"duration": 1.0, "texture": ExtResource("flag_3")}],
+"loop": true,
+"name": &"wave",
+"speed": 6.0
+}]
+
+[node name="Flag" type="Node2D"]
+script = ExtResource("flag_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_flag")
+animation = &"wave"
+autoplay = "wave"

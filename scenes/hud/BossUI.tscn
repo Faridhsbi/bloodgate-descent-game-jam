@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://bs6nsof1g0okh"]
+
+[ext_resource type="Script" uid="uid://dk5xvcr0ww76h" path="res://scripts/ui/boss_ui.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://ch2rr16ndmbec" path="res://assets/Cryo's Mini GUI/GUI/GUI_1x.png" id="2_gui1"]
+[ext_resource type="Texture2D" uid="uid://bp2w1wxafvpye" path="res://assets/Cryo's Mini GUI/GUI/GUI_2x.png" id="3_gui2"]
+[ext_resource type="Texture2D" uid="uid://fbtv2eodtbqs" path="res://assets/free-vampire-4-direction-pixel-character-sprite-pack/PNG/Vampires3/Run/Vampires3_Run_full.png" id="4_boss"]
+[ext_resource type="FontFile" uid="uid://cc1eoqnt6rqsf" path="res://font/Pixeled.ttf" id="5_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icon"]
+bg_color = Color(0.09, 0.015, 0.02, 0.94)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.72, 0.06, 0.1, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icon"]
+atlas = ExtResource("4_boss")
+region = Rect2(397.44257, 15.30274, 36.99695, 29.379946)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_health"]
+atlas = ExtResource("3_gui2")
+region = Rect2(0, 208.104, 31.934, 7.937)
+
+[node name="BossUI" type="CanvasLayer" unique_id=641175172 groups=["boss_ui"]]
+script = ExtResource("1_script")
+
+[node name="Root" type="Control" parent="." unique_id=2118159599]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Phase2Flash" type="ColorRect" parent="Root" unique_id=867276882]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.7, 0, 0, 1)
+
+[node name="Holder" type="HBoxContainer" parent="Root" unique_id=1271776893]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.0
+offset_top = 12.0
+offset_right = 136.0
+offset_bottom = 52.0
+grow_horizontal = 2
+scale = Vector2(0.59999967, 0.59999967)
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="IconFrame" type="PanelContainer" parent="Root/Holder" unique_id=1507326461]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_icon")
+
+[node name="Icon" type="TextureRect" parent="Root/Holder/IconFrame" unique_id=1752488647]
+layout_mode = 2
+texture = SubResource("AtlasTexture_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BarFrame" type="NinePatchRect" parent="Root/Holder" unique_id=1179191334]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+texture = ExtResource("2_gui1")
+region_rect = Rect2(0.838, 88.592, 38.5, 11)
+patch_margin_left = 5
+patch_margin_top = 4
+patch_margin_right = 5
+patch_margin_bottom = 4
+
+[node name="HealthFill" type="TextureProgressBar" parent="Root/Holder/BarFrame" unique_id=1471323094]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.333334
+offset_right = -3.0
+offset_bottom = -3.5
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 2
+stretch_margin_right = 4
+texture_progress = SubResource("AtlasTexture_health")
+
+[node name="Phase2Label" type="Label" parent="Root" unique_id=1974506052]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -145.0
+offset_top = 43.0
+offset_right = 145.0
+offset_bottom = 63.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.18, 0.12, 1)
+theme_override_colors/font_outline_color = Color(0.06, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("5_font")
+theme_override_font_sizes/font_size = 7
+text = "THE BLOODTHIRSTY BEAST"
+horizontal_alignment = 1

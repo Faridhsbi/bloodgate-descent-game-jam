@@ -1,0 +1,223 @@
+[gd_scene format=3 uid="uid://b2546tbe501r2"]
+
+[ext_resource type="Script" uid="uid://bmcig54mhc3t8" path="res://scripts/ui/settings_menu.gd" id="1"]
+[ext_resource type="FontFile" uid="uid://cc1eoqnt6rqsf" path="res://font/Pixeled.ttf" id="Font"]
+[ext_resource type="Texture2D" uid="uid://dod2cldfcao8r" path="res://assets/MenuButton.png" id="MenuButton"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("Font")
+font_size = 12
+font_color = Color(0.6627451, 0.93333334, 0.46666667, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_a3a3v"]
+content_margin_left = 15.0
+content_margin_right = 15.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_sijqj"]
+content_margin_left = 15.0
+content_margin_right = 15.0
+color = Color(0.8235294, 0.99607843, 0.4745098, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_dnt1f"]
+content_margin_left = 15.0
+content_margin_right = 15.0
+color = Color(0.8235294, 0.99607843, 0.4745098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_body"]
+font = ExtResource("Font")
+font_size = 6
+font_color = Color(0.31764707, 0.9882353, 0.49411765, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button"]
+texture = ExtResource("MenuButton")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(690, 454, 1014, 410)
+
+[node name="SettingsMenu" type="Control" unique_id=1654851592]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=483234651]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.018, 0.025, 0.58)
+
+[node name="Center" type="CenterContainer" parent="." unique_id=1511544511]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="NinePatchRect" parent="Center" unique_id=1246812183]
+custom_minimum_size = Vector2(360, 190)
+layout_mode = 2
+region_rect = Rect2(128, 32, 16, 15.795)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Margin" type="MarginContainer" parent="Center/Panel" unique_id=1869869366]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 12.0
+offset_right = -15.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="List" type="VBoxContainer" parent="Center/Panel/Margin" unique_id=481279896]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Center/Panel/Margin/List" unique_id=1441136802]
+layout_mode = 2
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="Tabs" type="TabContainer" parent="Center/Panel/Margin/List" unique_id=1562415172]
+custom_minimum_size = Vector2(300, 96)
+layout_mode = 2
+theme_override_colors/font_selected_color = Color(0.6627451, 0.93333334, 0.46666667, 1)
+theme_override_colors/font_hovered_color = Color(0.7167879, 0.9371881, 0.58754915, 1)
+theme_override_colors/font_unselected_color = Color(0.5921569, 0.84313726, 0.43529412, 1)
+theme_override_fonts/font = ExtResource("Font")
+theme_override_font_sizes/font_size = 5
+theme_override_styles/tab_unselected = SubResource("StyleBoxLine_a3a3v")
+theme_override_styles/tab_hovered = SubResource("StyleBoxLine_sijqj")
+theme_override_styles/tab_selected = SubResource("StyleBoxLine_dnt1f")
+current_tab = 0
+
+[node name="Audio" type="VBoxContainer" parent="Center/Panel/Margin/List/Tabs" unique_id=1369901747]
+layout_mode = 2
+theme_override_constants/separation = 7
+metadata/_tab_index = 0
+
+[node name="MasterRow" type="HBoxContainer" parent="Center/Panel/Margin/List/Tabs/Audio" unique_id=2035431651]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MasterLabel" type="Label" parent="Center/Panel/Margin/List/Tabs/Audio/MasterRow" unique_id=1996150249]
+custom_minimum_size = Vector2(82, 0)
+layout_mode = 2
+text = "Master Volume"
+label_settings = SubResource("LabelSettings_body")
+
+[node name="MasterSlider" type="HSlider" parent="Center/Panel/Margin/List/Tabs/Audio/MasterRow" unique_id=1005118932]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BGMRow" type="HBoxContainer" parent="Center/Panel/Margin/List/Tabs/Audio" unique_id=1908528177]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BGMLabel" type="Label" parent="Center/Panel/Margin/List/Tabs/Audio/BGMRow" unique_id=771564896]
+custom_minimum_size = Vector2(82, 0)
+layout_mode = 2
+text = "BGM Volume"
+label_settings = SubResource("LabelSettings_body")
+
+[node name="BGMSlider" type="HSlider" parent="Center/Panel/Margin/List/Tabs/Audio/BGMRow" unique_id=1084087033]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SFXRow" type="HBoxContainer" parent="Center/Panel/Margin/List/Tabs/Audio" unique_id=1177634579]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SFXLabel" type="Label" parent="Center/Panel/Margin/List/Tabs/Audio/SFXRow" unique_id=659912976]
+custom_minimum_size = Vector2(82, 0)
+layout_mode = 2
+text = "SFX Volume"
+label_settings = SubResource("LabelSettings_body")
+
+[node name="SFXSlider" type="HSlider" parent="Center/Panel/Margin/List/Tabs/Audio/SFXRow" unique_id=1460576087]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Video" type="VBoxContainer" parent="Center/Panel/Margin/List/Tabs" unique_id=2131607903]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 7
+metadata/_tab_index = 1
+
+[node name="BrightnessRow" type="HBoxContainer" parent="Center/Panel/Margin/List/Tabs/Video" unique_id=720230211]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BrightnessLabel" type="Label" parent="Center/Panel/Margin/List/Tabs/Video/BrightnessRow" unique_id=1752736654]
+custom_minimum_size = Vector2(82, 0)
+layout_mode = 2
+text = "Brightness"
+label_settings = SubResource("LabelSettings_body")
+
+[node name="BrightnessSlider" type="HSlider" parent="Center/Panel/Margin/List/Tabs/Video/BrightnessRow" unique_id=1852632092]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Controls" type="VBoxContainer" parent="Center/Panel/Margin/List/Tabs" unique_id=1521261332]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 5
+metadata/_tab_index = 2
+
+[node name="ControlLine1" type="Label" parent="Center/Panel/Margin/List/Tabs/Controls" unique_id=2088294018]
+layout_mode = 2
+text = "Move: W A S D"
+label_settings = SubResource("LabelSettings_body")
+
+[node name="ControlLine2" type="Label" parent="Center/Panel/Margin/List/Tabs/Controls" unique_id=2140783226]
+layout_mode = 2
+text = "Dash: Shift / Space"
+label_settings = SubResource("LabelSettings_body")
+
+[node name="ControlLine3" type="Label" parent="Center/Panel/Margin/List/Tabs/Controls" unique_id=1722335382]
+layout_mode = 2
+text = "Shoot: Left Click"
+label_settings = SubResource("LabelSettings_body")
+
+[node name="ControlLine4" type="Label" parent="Center/Panel/Margin/List/Tabs/Controls" unique_id=988709202]
+layout_mode = 2
+text = "Interact: [E] Door / Chest"
+label_settings = SubResource("LabelSettings_body")
+
+[node name="BackButton" type="Button" parent="Center/Panel/Margin/List" unique_id=1248870597]
+custom_minimum_size = Vector2(95, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.31764707, 0.9882353, 0.49411765, 1)
+theme_override_colors/font_hover_color = Color(0.83137256, 0.99607843, 0.47058824, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("Font")
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxTexture_button")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_button")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button")
+theme_override_styles/focus = SubResource("StyleBoxTexture_button")
+text = "BACK"

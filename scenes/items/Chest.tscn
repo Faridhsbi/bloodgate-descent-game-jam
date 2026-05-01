@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://6b8lo20vstr2"]
+
+[ext_resource type="FontFile" uid="uid://cc1eoqnt6rqsf" path="res://font/Pixeled.ttf" id="10_47bv6"]
+[ext_resource type="Texture2D" uid="uid://3vnntx5rtmfu" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_1.png" id="chest_c_0"]
+[ext_resource type="Texture2D" uid="uid://cr2lot8gtduc7" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_2.png" id="chest_c_1"]
+[ext_resource type="Texture2D" uid="uid://c8gmic55tmx4s" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_3.png" id="chest_c_2"]
+[ext_resource type="Texture2D" uid="uid://dw7jh1ptb3su6" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_4.png" id="chest_c_3"]
+[ext_resource type="Texture2D" uid="uid://bhq2odwfpar6k" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_open_1.png" id="chest_o_0"]
+[ext_resource type="Texture2D" uid="uid://c7pyvrx6ob46r" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_open_2.png" id="chest_o_1"]
+[ext_resource type="Texture2D" uid="uid://dmrel00jio7ba" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_open_3.png" id="chest_o_2"]
+[ext_resource type="Texture2D" uid="uid://bycbmi41r2vfq" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_open_4.png" id="chest_o_3"]
+[ext_resource type="Script" uid="uid://dgl511ys20our" path="res://scripts/items/chest.gd" id="chest_script"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_chest"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("chest_c_0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("chest_c_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("chest_c_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("chest_c_3")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("chest_o_0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("chest_o_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("chest_o_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("chest_o_3")
+}],
+"loop": false,
+"name": &"open",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectShape_chest_body"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape_chest_interact"]
+radius = 16.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_no3nn"]
+font = ExtResource("10_47bv6")
+font_size = 5
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Chest" type="StaticBody2D" unique_id=806835916]
+scale = Vector2(1.2, 1.2)
+collision_mask = 0
+script = ExtResource("chest_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=124580145]
+sprite_frames = SubResource("SpriteFrames_chest")
+animation = &"closed"
+autoplay = "closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1866824544]
+shape = SubResource("RectShape_chest_body")
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=534948834]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=1313795417]
+shape = SubResource("CircleShape_chest_interact")
+
+[node name="PromptLabel" type="Label" parent="." unique_id=385119306]
+z_index = 1
+offset_left = -55.833332
+offset_top = -25.0
+offset_right = 58.166668
+offset_bottom = -2.0
+text = "[E] Open Chest"
+label_settings = SubResource("LabelSettings_no3nn")
+horizontal_alignment = 1
+vertical_alignment = 1

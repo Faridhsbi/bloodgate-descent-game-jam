@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bm707onwgm3vi"]
+
+[ext_resource type="Script" uid="uid://cyte6xmu0p5sm" path="res://scripts/vampire_strider.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dlxu7upwtvaif" path="res://assets/Enemy_Animations_Set/Enemy_Animations_Set/enemies-vampire_idle.png" id="2_tex"]
+[ext_resource type="PackedScene" uid="uid://cd4mhlmf3r7fk" path="res://scenes/hud/WorldHealthBar.tscn" id="3_health"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_strider"]
+radius = 5.0
+height = 14.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dash_hitbox"]
+size = Vector2(23, 20)
+
+[node name="VampireStrider" type="CharacterBody2D" unique_id=506711437]
+collision_layer = 4
+collision_mask = 16
+motion_mode = 1
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2132046961]
+position = Vector2(3, -8)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_tex")
+hframes = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1881325586]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_strider")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1556736002]
+collision_mask = 16
+
+[node name="DashHitbox" type="Area2D" parent="." unique_id=38584803]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DashHitbox" unique_id=2114006879]
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_dash_hitbox")
+
+[node name="WorldHealthBar" parent="." unique_id=1223393508 instance=ExtResource("3_health")]
+position = Vector2(0, -18)
+
+[node name="Progress" parent="WorldHealthBar" index="0" unique_id=829596800]
+offset_top = -1.0000005
+offset_bottom = 3.9999995
+
+[node name="HitSfx" type="AudioStreamPlayer2D" parent="." unique_id=1115025881]
+
+[editable path="WorldHealthBar"]

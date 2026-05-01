@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dltgtrn6r5csq"]
+
+[ext_resource type="Script" uid="uid://bjfq7wdnke1sc" path="res://spike_trap.gd" id="1_adao6"]
+[ext_resource type="Texture2D" uid="uid://payh1kci0h21" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/peaks/peaks_3.png" id="2_sqpae"]
+[ext_resource type="Texture2D" uid="uid://b1lkcbkkf8lhi" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/peaks/peaks_4.png" id="3_x23u6"]
+[ext_resource type="Texture2D" uid="uid://db52um3p2wva7" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/peaks/peaks_2.png" id="4_4dhjn"]
+[ext_resource type="Texture2D" uid="uid://kjxy2438svrw" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/peaks/peaks_1.png" id="5_t2lux"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x23u6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x1an3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sqpae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x23u6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4dhjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_t2lux")
+}],
+"loop": true,
+"name": &"spike",
+"speed": 5.0
+}]
+
+[node name="SpikeTrap" type="Area2D" unique_id=1212710465]
+script = ExtResource("1_adao6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1724148039]
+shape = SubResource("RectangleShape2D_x23u6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1969875471]
+position = Vector2(-4.7683716e-07, -4.7683716e-07)
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_x1an3")
+animation = &"spike"
+frame_progress = 0.52719116
+
+[node name="CycleTimer" type="Timer" parent="." unique_id=799838749]
+
+[node name="DamageTimer" type="Timer" parent="." unique_id=60174753]

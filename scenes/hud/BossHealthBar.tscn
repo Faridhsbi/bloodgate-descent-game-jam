@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://qi7rt7qi2j4b"]
+
+[node name="BossHealthBar" type="TextureProgressBar" unique_id=546086678]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=486835698]

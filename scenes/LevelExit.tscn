@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://cxc0mvklvapgw"]
+
+[ext_resource type="Script" uid="uid://dp2mj7oui4i1q" path="res://scripts/level_exit.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://ddhikhoimh4n6" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flag/flag_1.png" id="2_flag_0"]
+[ext_resource type="Texture2D" uid="uid://bs4d2j55hvmxu" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flag/flag_2.png" id="3_flag_1"]
+[ext_resource type="Texture2D" uid="uid://bldd1squ3mlct" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flag/flag_3.png" id="4_flag_2"]
+[ext_resource type="Texture2D" uid="uid://bei56eo8geqm0" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flag/flag_4.png" id="5_flag_3"]
+[ext_resource type="FontFile" uid="uid://cc1eoqnt6rqsf" path="res://font/Pixeled.ttf" id="6_font"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_marker"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_flag_0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_flag_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_flag_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_flag_3")
+}],
+"loop": true,
+"name": &"wave",
+"speed": 6.0
+}]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xpn3a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_portal"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_enemy_detector"]
+radius = 336.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_prompt"]
+line_spacing = 0.0
+font = ExtResource("6_font")
+font_size = 5
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LevelExit" type="Node2D" unique_id=406412274]
+script = ExtResource("1_script")
+
+[node name="Marker" type="AnimatedSprite2D" parent="." unique_id=459808829]
+modulate = Color(1.2, 0.8, 0.95, 1)
+position = Vector2(0, -11)
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_marker")
+animation = &"wave"
+autoplay = "wave"
+
+[node name="PortalGlow" type="PointLight2D" parent="." unique_id=350892418]
+position = Vector2(3.9999847, -8.000061)
+scale = Vector2(0.61105645, 0.5249344)
+color = Color(0.9, 0.17, 0.24, 1)
+energy = 0.85
+texture = SubResource("NoiseTexture2D_xpn3a")
+texture_scale = 3.81
+
+[node name="PortalArea" type="Area2D" parent="." unique_id=889399279]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalArea" unique_id=53835569]
+shape = SubResource("CircleShape2D_portal")
+
+[node name="EnemyDetector" type="Area2D" parent="." unique_id=412044958]
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector" unique_id=1042241251]
+shape = SubResource("CircleShape2D_enemy_detector")
+
+[node name="PromptLabel" type="Label" parent="." unique_id=2013981339]
+z_index = 8
+offset_left = -86.0
+offset_top = -54.0
+offset_right = 86.0
+offset_bottom = -31.0
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 5
+text = "[E] ENTER"
+label_settings = SubResource("LabelSettings_prompt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LockLabel" type="Label" parent="." unique_id=2017514613]
+z_index = 8
+offset_left = -112.0
+offset_top = -54.0
+offset_right = 112.0
+offset_bottom = -31.0
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 4
+text = "PURGE THE ROOM"
+label_settings = SubResource("LabelSettings_prompt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1282920128]
+layer = 80
+
+[node name="Overlay" type="ColorRect" parent="CanvasLayer" unique_id=1234819176]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0352941, 0, 0.012, 1)
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer" unique_id=148573310]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -48.0
+offset_right = 260.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 12
+text = "THE BLOOD GATE OPENS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="CanvasLayer" unique_id=2022363765]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_right = 270.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 5
+text = "The air grows colder beyond this threshold."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TransitionSfx" type="AudioStreamPlayer2D" parent="." unique_id=511901238]
+bus = &"SFX"

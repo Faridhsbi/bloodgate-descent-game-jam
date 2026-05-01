@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://3gr3lvl6a2vl"]
+
+[ext_resource type="Texture2D" uid="uid://j4663021fym5" path="res://assets/free-2d-top-down-pixel-dungeon-asset-pack/PNG/fire_animation.png" id="1_deg8p"]
+[ext_resource type="Texture2D" uid="uid://dxf1gscmkm6xf" path="res://assets/free-2d-top-down-pixel-dungeon-asset-pack/PNG/fire_animation2.png" id="2_o3qto"]
+[ext_resource type="Texture2D" uid="uid://b42r2kv8cvoeo" path="res://assets/free-2d-top-down-pixel-dungeon-asset-pack/PNG/doors_lever_chest_animation.png" id="3_ihm5l"]
+[ext_resource type="Texture2D" uid="uid://bns74avnmpc2b" path="res://assets/free-2d-top-down-pixel-dungeon-asset-pack/PNG/walls_floor.png" id="4_jexie"]
+
+[node name="Checkpoint" type="Area2D" unique_id=1597012485]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1390472454]
+
+[node name="FireAnimation" type="Sprite2D" parent="." unique_id=1576363636]
+position = Vector2(568, 608)
+texture = ExtResource("1_deg8p")
+
+[node name="FireAnimation2" type="Sprite2D" parent="." unique_id=1014055738]
+position = Vector2(776, 600)
+texture = ExtResource("2_o3qto")
+
+[node name="DoorsLeverChestAnimation" type="Sprite2D" parent="." unique_id=1187094438]
+position = Vector2(928, 656)
+texture = ExtResource("3_ihm5l")
+
+[node name="WallsFloor" type="Sprite2D" parent="." unique_id=542648978]
+position = Vector2(624, 680)
+texture = ExtResource("4_jexie")

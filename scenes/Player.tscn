@@ -1,0 +1,1031 @@
+[gd_scene format=3 uid="uid://j54lupoylhq8"]
+
+[ext_resource type="Script" uid="uid://cvp575ism80rs" path="res://scripts/character_body_2d.gd" id="1_3li8b"]
+[ext_resource type="Texture2D" uid="uid://bn4gjeh7itt7o" path="res://assets/The Male adventurer - Free/The Male adventurer - Free/Idle/idle.png" id="3_qu4a1"]
+[ext_resource type="AudioStream" uid="uid://ba55jdq75iejx" path="res://audio/620334__marb7e__footsteps_leather_wood_walk04.wav" id="6_70d11"]
+[ext_resource type="Texture2D" uid="uid://dmwtnwp5ducpl" path="res://assets/The Male adventurer - Free/The Male adventurer - Free/Dash/Dash.png" id="Tex_Dash"]
+[ext_resource type="Texture2D" uid="uid://bijwkdsxk2vss" path="res://assets/The Male adventurer - Free/The Male adventurer - Free/Death/death_normal.png" id="Tex_Death"]
+[ext_resource type="Texture2D" uid="uid://8br0266eh0jv" path="res://assets/The Male adventurer - Free/The Male adventurer - Free/Walk/walk.png" id="Tex_Walk"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3li8b"]
+load_path = "res://.godot/imported/idle.png-426ca8b036136b47df5304c88ace626a.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70d11"]
+size = Vector2(10, 10)
+
+[sub_resource type="Animation" id="Animation_shake"]
+resource_name = "shake"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-5, 5), Vector2(6, -4), Vector2(-6, -6), Vector2(4, 7), Vector2(-3, 2), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_shake"]
+_data = {
+"shake": SubResource("Animation_shake")
+}
+
+[sub_resource type="Animation" id="Animation_cw2d6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CompressedTexture2D_3li8b")]
+}
+
+[sub_resource type="Animation" id="Anim_dash_atas"]
+resource_name = "dash_atas"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("Tex_Dash")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29, 30, 31]
+}
+
+[sub_resource type="Animation" id="Anim_dash_bawah"]
+resource_name = "dash_bawah"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("Tex_Dash")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Anim_dash_kanan_atas"]
+resource_name = "dash_kanan_atas"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("Tex_Dash")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35, 36, 37, 38, 39]
+}
+
+[sub_resource type="Animation" id="Anim_dash_kanan_bawah"]
+resource_name = "dash_kanan_bawah"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("Tex_Dash")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43, 44, 45, 46, 47]
+}
+
+[sub_resource type="Animation" id="Anim_dash_kiri_atas"]
+resource_name = "dash_kiri_atas"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("Tex_Dash")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20, 21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Anim_dash_kiri_bawah"]
+resource_name = "dash_kiri_bawah"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("Tex_Dash")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Anim_death_atas"]
+resource_name = "death_atas"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("Tex_Death")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29, 30, 31]
+}
+
+[sub_resource type="Animation" id="Anim_death_bawah"]
+resource_name = "death_bawah"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("Tex_Death")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Anim_death_kanan_atas"]
+resource_name = "death_kanan_atas"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("Tex_Death")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35, 36, 37, 38, 39]
+}
+
+[sub_resource type="Animation" id="Anim_death_kanan_bawah"]
+resource_name = "death_kanan_bawah"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("Tex_Death")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43, 44, 45, 46, 47]
+}
+
+[sub_resource type="Animation" id="Anim_death_kiri_atas"]
+resource_name = "death_kiri_atas"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("Tex_Death")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20, 21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Anim_death_kiri_bawah"]
+resource_name = "death_kiri_bawah"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("Tex_Death")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_6eyey"]
+resource_name = "idle_atas"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_qu4a1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29, 30, 31]
+}
+
+[sub_resource type="Animation" id="Animation_bruh7"]
+resource_name = "idle_bawah"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_qu4a1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_mdl7e"]
+resource_name = "idle_kanan_atas"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_qu4a1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35, 36, 37, 38, 39]
+}
+
+[sub_resource type="Animation" id="Animation_qu4a1"]
+resource_name = "idle_kanan_bawah"
+length = 0.9
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_qu4a1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43, 44, 45, 46, 47, 47]
+}
+
+[sub_resource type="Animation" id="Animation_70d11"]
+resource_name = "idle_kiri_atas"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_qu4a1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20, 21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Animation_khinc"]
+resource_name = "idle_kiri_bawah"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_qu4a1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Anim_walk_atas"]
+resource_name = "walk_atas"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("Tex_Walk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29, 30, 31]
+}
+
+[sub_resource type="Animation" id="Anim_walk_bawah"]
+resource_name = "walk_bawah"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("Tex_Walk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Anim_walk_kanan_atas"]
+resource_name = "walk_kanan_atas"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("Tex_Walk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35, 36, 37, 38, 39]
+}
+
+[sub_resource type="Animation" id="Anim_walk_kanan_bawah"]
+resource_name = "walk_kanan_bawah"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("Tex_Walk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43, 44, 45, 46, 47]
+}
+
+[sub_resource type="Animation" id="Anim_walk_kiri_atas"]
+resource_name = "walk_kiri_atas"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("Tex_Walk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20, 21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Anim_walk_kiri_bawah"]
+resource_name = "walk_kiri_bawah"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("Tex_Walk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o4126"]
+_data = {
+&"RESET": SubResource("Animation_cw2d6"),
+&"dash_atas": SubResource("Anim_dash_atas"),
+&"dash_bawah": SubResource("Anim_dash_bawah"),
+&"dash_kanan_atas": SubResource("Anim_dash_kanan_atas"),
+&"dash_kanan_bawah": SubResource("Anim_dash_kanan_bawah"),
+&"dash_kiri_atas": SubResource("Anim_dash_kiri_atas"),
+&"dash_kiri_bawah": SubResource("Anim_dash_kiri_bawah"),
+&"death_atas": SubResource("Anim_death_atas"),
+&"death_bawah": SubResource("Anim_death_bawah"),
+&"death_kanan_atas": SubResource("Anim_death_kanan_atas"),
+&"death_kanan_bawah": SubResource("Anim_death_kanan_bawah"),
+&"death_kiri_atas": SubResource("Anim_death_kiri_atas"),
+&"death_kiri_bawah": SubResource("Anim_death_kiri_bawah"),
+&"idle_atas": SubResource("Animation_6eyey"),
+&"idle_bawah": SubResource("Animation_bruh7"),
+&"idle_kanan_atas": SubResource("Animation_mdl7e"),
+&"idle_kanan_bawah": SubResource("Animation_qu4a1"),
+&"idle_kiri_atas": SubResource("Animation_70d11"),
+&"idle_kiri_bawah": SubResource("Animation_khinc"),
+&"walk_atas": SubResource("Anim_walk_atas"),
+&"walk_bawah": SubResource("Anim_walk_bawah"),
+&"walk_kanan_atas": SubResource("Anim_walk_kanan_atas"),
+&"walk_kanan_bawah": SubResource("Anim_walk_kanan_bawah"),
+&"walk_kiri_atas": SubResource("Anim_walk_kiri_atas"),
+&"walk_kiri_bawah": SubResource("Anim_walk_kiri_bawah")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_attack_bawah"]
+animation = &"attack_bawah"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_attack_kiri_bawah"]
+animation = &"attack_kiri_bawah"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_attack_kiri_atas"]
+animation = &"attack_kiri_atas"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_attack_atas"]
+animation = &"attack_atas"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_attack_kanan_atas"]
+animation = &"attack_kanan_atas"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_attack_kanan_bawah"]
+animation = &"attack_kanan_bawah"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="Blend_Attack"]
+blend_point_0/node = SubResource("NodeAnim_attack_bawah")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("NodeAnim_attack_kiri_bawah")
+blend_point_1/pos = Vector2(-0.8, 0.6)
+blend_point_2/node = SubResource("NodeAnim_attack_kiri_atas")
+blend_point_2/pos = Vector2(-0.8, -0.6)
+blend_point_3/node = SubResource("NodeAnim_attack_atas")
+blend_point_3/pos = Vector2(0, -1)
+blend_point_4/node = SubResource("NodeAnim_attack_kanan_atas")
+blend_point_4/pos = Vector2(0.8, -0.7)
+blend_point_5/node = SubResource("NodeAnim_attack_kanan_bawah")
+blend_point_5/pos = Vector2(0.8, 0.6)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_dash_bawah"]
+animation = &"dash_bawah"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_dash_kiri_bawah"]
+animation = &"dash_kiri_bawah"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_dash_kiri_atas"]
+animation = &"dash_kiri_atas"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_dash_atas"]
+animation = &"dash_atas"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_dash_kanan_atas"]
+animation = &"dash_kanan_atas"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_dash_kanan_bawah"]
+animation = &"dash_kanan_bawah"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="Blend_Dash"]
+blend_point_0/node = SubResource("NodeAnim_dash_bawah")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("NodeAnim_dash_kiri_bawah")
+blend_point_1/pos = Vector2(-0.8, 0.6)
+blend_point_2/node = SubResource("NodeAnim_dash_kiri_atas")
+blend_point_2/pos = Vector2(-0.8, -0.6)
+blend_point_3/node = SubResource("NodeAnim_dash_atas")
+blend_point_3/pos = Vector2(0, -1)
+blend_point_4/node = SubResource("NodeAnim_dash_kanan_atas")
+blend_point_4/pos = Vector2(0.8, -0.7)
+blend_point_5/node = SubResource("NodeAnim_dash_kanan_bawah")
+blend_point_5/pos = Vector2(0.8, 0.6)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_death_bawah"]
+animation = &"death_bawah"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_death_kiri_bawah"]
+animation = &"death_kiri_bawah"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_death_kiri_atas"]
+animation = &"death_kiri_atas"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_death_atas"]
+animation = &"death_atas"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_death_kanan_atas"]
+animation = &"death_kanan_atas"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_death_kanan_bawah"]
+animation = &"death_kanan_bawah"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="Blend_Death"]
+blend_point_0/node = SubResource("NodeAnim_death_bawah")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("NodeAnim_death_kiri_bawah")
+blend_point_1/pos = Vector2(-0.8, 0.6)
+blend_point_2/node = SubResource("NodeAnim_death_kiri_atas")
+blend_point_2/pos = Vector2(-0.8, -0.6)
+blend_point_3/node = SubResource("NodeAnim_death_atas")
+blend_point_3/pos = Vector2(0, -1)
+blend_point_4/node = SubResource("NodeAnim_death_kanan_atas")
+blend_point_4/pos = Vector2(0.8, -0.7)
+blend_point_5/node = SubResource("NodeAnim_death_kanan_bawah")
+blend_point_5/pos = Vector2(0.8, 0.6)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6eyey"]
+animation = &"idle_bawah"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o4126"]
+animation = &"idle_kanan_bawah"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lkdrv"]
+animation = &"idle_kiri_bawah"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3li8b"]
+animation = &"idle_atas"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mdl7e"]
+animation = &"idle_kiri_atas"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qu4a1"]
+animation = &"idle_kanan_atas"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_p7iby"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_6eyey")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_o4126")
+blend_point_1/pos = Vector2(0.8, 0.6)
+blend_point_2/node = SubResource("AnimationNodeAnimation_lkdrv")
+blend_point_2/pos = Vector2(-0.8, 0.6)
+blend_point_3/node = SubResource("AnimationNodeAnimation_3li8b")
+blend_point_3/pos = Vector2(0, -1)
+blend_point_4/node = SubResource("AnimationNodeAnimation_mdl7e")
+blend_point_4/pos = Vector2(-0.8, -0.6)
+blend_point_5/node = SubResource("AnimationNodeAnimation_qu4a1")
+blend_point_5/pos = Vector2(0.8, -0.7)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_walk_bawah"]
+animation = &"walk_bawah"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_walk_kiri_bawah"]
+animation = &"walk_kiri_bawah"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_walk_kiri_atas"]
+animation = &"walk_kiri_atas"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_walk_atas"]
+animation = &"walk_atas"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_walk_kanan_atas"]
+animation = &"walk_kanan_atas"
+
+[sub_resource type="AnimationNodeAnimation" id="NodeAnim_walk_kanan_bawah"]
+animation = &"walk_kanan_bawah"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="Blend_Walk"]
+blend_point_0/node = SubResource("NodeAnim_walk_bawah")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("NodeAnim_walk_kiri_bawah")
+blend_point_1/pos = Vector2(-0.8, 0.6)
+blend_point_2/node = SubResource("NodeAnim_walk_kiri_atas")
+blend_point_2/pos = Vector2(-0.8, -0.6)
+blend_point_3/node = SubResource("NodeAnim_walk_atas")
+blend_point_3/pos = Vector2(0, -1)
+blend_point_4/node = SubResource("NodeAnim_walk_kanan_atas")
+blend_point_4/pos = Vector2(0.8, -0.7)
+blend_point_5/node = SubResource("NodeAnim_walk_kanan_bawah")
+blend_point_5/pos = Vector2(0.8, 0.6)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0rnld"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_srp4u"]
+states/Attack/node = SubResource("Blend_Attack")
+states/Attack/position = Vector2(500, 200)
+states/Dash/node = SubResource("Blend_Dash")
+states/Dash/position = Vector2(556, 144)
+states/Death/node = SubResource("Blend_Death")
+states/Death/position = Vector2(678.6667, 142.66667)
+states/Idle/node = SubResource("AnimationNodeBlendSpace2D_p7iby")
+states/Idle/position = Vector2(404.66666, 98.44444)
+states/Walk/node = SubResource("Blend_Walk")
+states/Walk/position = Vector2(643.3334, 51.40741)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_0rnld")]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_player_hitbox"]
+radius = 15.0
+
+[node name="Player" type="CharacterBody2D" unique_id=747941560]
+y_sort_enabled = true
+collision_mask = 16
+motion_mode = 1
+wall_min_slide_angle = 0.17453292
+script = ExtResource("1_3li8b")
+sprint_speed = 200.0
+exhausted_speed = 40.0
+stamina_drain_sprint = 100.0
+stamina_regen = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=141896659]
+texture = SubResource("CompressedTexture2D_3li8b")
+hframes = 8
+vframes = 6
+frame = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1243488623]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_70d11")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=489364694]
+libraries/ = SubResource("AnimationLibrary_o4126")
+autoplay = &"idle_bawah"
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1919180403]
+tree_root = SubResource("AnimationNodeStateMachine_srp4u")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Attack/blend_position = Vector2(0, 0)
+parameters/Dash/blend_position = Vector2(0, 0)
+parameters/Death/blend_position = Vector2(0, 0)
+parameters/Idle/blend_position = Vector2(-0.09175742, -0.51746035)
+parameters/Walk/blend_position = Vector2(0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=877284165]
+
+[node name="ShakeAnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
+libraries = {
+"": SubResource("AnimationLibrary_shake")
+}
+
+[node name="AttackHitbox" type="Area2D" parent="." unique_id=718312061]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox" unique_id=226864872]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_player_hitbox")
+
+[node name="FootstepPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2013687755]
+stream = ExtResource("6_70d11")
+volume_db = -25.87

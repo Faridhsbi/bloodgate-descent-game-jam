@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://5mjtnb6xqvph"]
+
+[ext_resource type="Script" uid="uid://dl2lagoxg1pqf" path="res://scripts/fireball.gd" id="fireball_script"]
+[ext_resource type="Texture2D" uid="uid://cq3ac2gisif71" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flamethrower/flamethrower_1_1.png" id="flame_down_1"]
+[ext_resource type="Texture2D" uid="uid://c1yrsbj7oeuu0" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flamethrower/flamethrower_1_2.png" id="flame_down_2"]
+[ext_resource type="Texture2D" uid="uid://bhhpckwjx34mb" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flamethrower/flamethrower_1_3.png" id="flame_down_3"]
+[ext_resource type="Texture2D" uid="uid://bueoluhrlwmvo" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flamethrower/flamethrower_1_4.png" id="flame_down_4"]
+[ext_resource type="Texture2D" uid="uid://cy2gblb3ypldg" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flamethrower/flamethrower_2_1.png" id="flame_right_1"]
+[ext_resource type="Texture2D" uid="uid://be1bnm8nqj5ds" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flamethrower/flamethrower_2_2.png" id="flame_right_2"]
+[ext_resource type="Texture2D" uid="uid://bdusi4dxkme14" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flamethrower/flamethrower_2_3.png" id="flame_right_3"]
+[ext_resource type="Texture2D" uid="uid://ds1edsel4tmrx" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flamethrower/flamethrower_2_4.png" id="flame_right_4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_flame"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("flame_down_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("flame_down_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("flame_down_3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("flame_down_4")
+}],
+"loop": true,
+"name": &"down",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("flame_right_1")
+}, {
+"duration": 2.0,
+"texture": ExtResource("flame_right_2")
+}, {
+"duration": 2.0,
+"texture": ExtResource("flame_right_3")
+}, {
+"duration": 2.0,
+"texture": ExtResource("flame_right_4")
+}],
+"loop": true,
+"name": &"right",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fireball"]
+radius = 6.0
+
+[node name="Fireball" type="Area2D" unique_id=811930697]
+collision_layer = 4
+collision_mask = 31
+script = ExtResource("fireball_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=190070612]
+sprite_frames = SubResource("SpriteFrames_flame")
+animation = &"right"
+autoplay = "right"
+frame_progress = 0.213002
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1235375448]
+shape = SubResource("CircleShape2D_fireball")
+
+[node name="LifeTimer" type="Timer" parent="." unique_id=548183669]
+wait_time = 0.4
+one_shot = true

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cd4mhlmf3r7fk"]
+
+[ext_resource type="Texture2D" uid="uid://60xbi0dr2psd" path="res://assets/Pixel UI pack 3/04.png" id="1_ui"]
+[ext_resource type="Script" uid="uid://b0mfju574op3x" path="res://scripts/ui/world_health_bar.gd" id="2_script"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fill"]
+atlas = ExtResource("1_ui")
+region = Rect2(56.927105, 133.274, 32.753773, 5.169037)
+
+[node name="WorldHealthBar" type="Node2D" unique_id=1330435451]
+script = ExtResource("2_script")
+
+[node name="Progress" type="TextureProgressBar" parent="." unique_id=829596800]
+z_index = 2
+offset_left = -13.000001
+offset_top = -3.0
+offset_right = 19.0
+offset_bottom = 2.0
+scale = Vector2(0.8, 0.8)
+value = 100.0
+texture_under = SubResource("AtlasTexture_fill")
+texture_over = SubResource("AtlasTexture_fill")
+texture_progress = SubResource("AtlasTexture_fill")
+tint_under = Color(0.184314, 0.0470588, 0.0666667, 0.9)
+tint_over = Color(1, 1, 1, 0.35)
+tint_progress = Color(0.92549, 0.180392, 0.25098, 1)

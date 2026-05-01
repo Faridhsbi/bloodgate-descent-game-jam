@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://c0vg0qw8i815x"]
+
+[ext_resource type="Script" uid="uid://cjqgcpreqgarb" path="res://scripts/ui/tutorial_overlay.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://o04qpfaa845c" path="res://assets/bingkai.png" id="2_frame"]
+[ext_resource type="FontFile" uid="uid://cc1eoqnt6rqsf" path="res://font/Pixeled.ttf" id="3_font"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_text"]
+font = ExtResource("3_font")
+font_size = 7
+font_color = Color(0.8117647, 1, 0.4745098, 1)
+outline_size = 3
+outline_color = Color(0.04, 0.01, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_click"]
+font = ExtResource("3_font")
+font_size = 5
+font_color = Color(0.8117647, 1, 0.4745098, 1)
+outline_size = 3
+outline_color = Color(0.04, 0.01, 0, 1)
+
+[node name="TutorialOverlay" type="CanvasLayer" unique_id=1147486953]
+process_mode = 3
+layer = 70
+script = ExtResource("1_script")
+
+[node name="Panel" type="NinePatchRect" parent="." unique_id=1867755964]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -84.0
+offset_right = -14.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_frame")
+region_rect = Rect2(0, 0, 320, 96)
+patch_margin_left = 14
+patch_margin_top = 14
+patch_margin_right = 14
+patch_margin_bottom = 14
+
+[node name="Margin" type="MarginContainer" parent="Panel" unique_id=1500616922]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 12.0
+offset_right = -24.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="List" type="VBoxContainer" parent="Panel/Margin" unique_id=1111341856]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="TutorialText" type="Label" parent="Panel/Margin/List" unique_id=2094823316]
+layout_mode = 2
+text = "Use [W] [A] [S] [D] to move."
+label_settings = SubResource("LabelSettings_text")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ClickLabel" type="Label" parent="Panel/Margin/List" unique_id=703667355]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Click for next"
+label_settings = SubResource("LabelSettings_click")
+horizontal_alignment = 1

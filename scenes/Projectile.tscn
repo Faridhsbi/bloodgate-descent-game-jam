@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bj25k1pwrrgcf"]
+
+[ext_resource type="Script" uid="uid://cuvrl4820s05g" path="res://scripts/projectile.gd" id="1_2a1bc"]
+[ext_resource type="Texture2D" uid="uid://by4litmdqpmrb" path="res://assets/TheUltimateWeaponsPack/Bullet 24x24 Part 10A Free.png" id="2_vihyi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xh6v2"]
+size = Vector2(4, 2)
+
+[node name="Projectile" type="Area2D" unique_id=1103287940]
+script = ExtResource("1_2a1bc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=271491301]
+position = Vector2(-2.3841858e-07, 0)
+scale = Vector2(0.2352941, 0.2)
+texture = ExtResource("2_vihyi")
+region_enabled = true
+region_rect = Rect2(4, 7, 17, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1625681967]
+shape = SubResource("RectangleShape2D_xh6v2")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=480227213]
+visible = false
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 2.0
+offset_bottom = 1.0
+color = Color(0.8901961, 0.5764706, 0.2784314, 1)
+
+[node name="LifeTimer" type="Timer" parent="." unique_id=1764245679]
+wait_time = 5.0

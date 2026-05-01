@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://0t1ndndq0dib"]
+
+[ext_resource type="Texture2D" uid="uid://boabk8pqppsv1" path="res://assets/Enemy_Animations_Set/Enemy_Animations_Set/enemies-vampire_attack.png" id="1_5bcnj"]
+[ext_resource type="Texture2D" uid="uid://d08wnsmk3u0h7" path="res://assets/Enemy_Animations_Set/Enemy_Animations_Set/enemies-vampire_death.png" id="2_6pkpa"]
+[ext_resource type="Texture2D" uid="uid://dlxu7upwtvaif" path="res://assets/Enemy_Animations_Set/Enemy_Animations_Set/enemies-vampire_idle.png" id="3_kvksl"]
+[ext_resource type="Texture2D" uid="uid://c8cmrhu5w7dh" path="res://assets/Enemy_Animations_Set/Enemy_Animations_Set/enemies-vampire_movement.png" id="4_msrcr"]
+[ext_resource type="Texture2D" uid="uid://c38yt7lxrvucc" path="res://assets/Enemy_Animations_Set/Enemy_Animations_Set/enemies-vampire_take_damage.png" id="5_8eyso"]
+[ext_resource type="Texture2D" uid="uid://kffcy0ru2whq" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Character.png" id="6_xc0c5"]
+[ext_resource type="Texture2D" uid="uid://diomrt1dcwsfl" path="res://assets/Pixel UI pack 3/00.png" id="7_l3j6b"]
+[ext_resource type="Texture2D" uid="uid://do4jvuaclubt5" path="res://assets/Pixel UI pack 3/01.png" id="8_45rnl"]
+[ext_resource type="Texture2D" uid="uid://kwjpqho7u76v" path="res://assets/Pixel UI pack 3/02.png" id="9_ywila"]
+[ext_resource type="Texture2D" uid="uid://bgu6cg204clqe" path="res://assets/Pixel UI pack 3/03.png" id="10_20o8u"]
+[ext_resource type="Texture2D" uid="uid://60xbi0dr2psd" path="res://assets/Pixel UI pack 3/04.png" id="11_0713l"]
+[ext_resource type="Texture2D" uid="uid://deaqjs406k20j" path="res://assets/Pixel UI pack 3/05.png" id="12_etkrb"]
+[ext_resource type="Texture2D" uid="uid://bw77hiu7lffpm" path="res://assets/Pixel UI pack 3/06.png" id="13_fcx21"]
+[ext_resource type="Texture2D" uid="uid://bvvypgo3vuf7y" path="res://assets/Pixel UI pack 3/07.png" id="14_iy041"]
+[ext_resource type="Texture2D" uid="uid://by4litmdqpmrb" path="res://assets/TheUltimateWeaponsPack/Bullet 24x24 Part 10A Free.png" id="15_j1jly"]
+[ext_resource type="Texture2D" uid="uid://dpeo6ayfepj7c" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Character_2.png" id="16_a885y"]
+[ext_resource type="Texture2D" uid="uid://cpqjym8pmlwq5" path="res://assets/free-vampire-4-direction-pixel-character-sprite-pack/PNG/Vampires1/Idle/Vampires1_Idle_full.png" id="17_ow7wm"]
+[ext_resource type="Texture2D" uid="uid://bevrxyk3hfp4a" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/Dungeon_Character_at.png" id="18_ma3dn"]
+[ext_resource type="Texture2D" uid="uid://c1mxb2vt1efkj" path="res://assets/Enemy_Animations_Set/Enemy_Animations_Set/enemies-skeleton2_attack.png" id="19_tirn5"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1888496496]
+
+[node name="EnemiesVampireAttack" type="Sprite2D" parent="." unique_id=1587923359]
+position = Vector2(224, 312)
+texture = ExtResource("1_5bcnj")
+hframes = 16
+frame = 4
+
+[node name="EnemiesVampireDeath" type="Sprite2D" parent="." unique_id=95188823]
+position = Vector2(216, 344)
+texture = ExtResource("2_6pkpa")
+hframes = 14
+frame = 12
+
+[node name="EnemiesVampireIdle" type="Sprite2D" parent="." unique_id=1481311279]
+position = Vector2(152, 376)
+texture = ExtResource("3_kvksl")
+
+[node name="EnemiesVampireMovement" type="Sprite2D" parent="." unique_id=1752669038]
+position = Vector2(128, 416)
+texture = ExtResource("4_msrcr")
+
+[node name="EnemiesVampireTakeDamage" type="Sprite2D" parent="." unique_id=326710386]
+position = Vector2(176, 440)
+texture = ExtResource("5_8eyso")
+
+[node name="DungeonCharacter" type="Sprite2D" parent="." unique_id=987497128]
+position = Vector2(216, 248)
+texture = ExtResource("6_xc0c5")
+
+[node name="00" type="Sprite2D" parent="." unique_id=2088027569]
+position = Vector2(680, 432)
+texture = ExtResource("7_l3j6b")
+
+[node name="01" type="Sprite2D" parent="." unique_id=78301247]
+position = Vector2(616, 656)
+texture = ExtResource("8_45rnl")
+
+[node name="02" type="Sprite2D" parent="." unique_id=2016993931]
+position = Vector2(184, 728)
+texture = ExtResource("9_ywila")
+
+[node name="03" type="Sprite2D" parent="." unique_id=1836195305]
+position = Vector2(504, 888)
+texture = ExtResource("10_20o8u")
+
+[node name="04" type="Sprite2D" parent="." unique_id=1663125880]
+position = Vector2(984, 880)
+texture = ExtResource("11_0713l")
+region_enabled = true
+region_rect = Rect2(57.33432, 133.27357, 31.485283, 4.411026)
+
+[node name="05" type="Sprite2D" parent="." unique_id=1677624583]
+position = Vector2(744, 1048)
+texture = ExtResource("12_etkrb")
+
+[node name="06" type="Sprite2D" parent="." unique_id=592230442]
+position = Vector2(1024, 1200)
+texture = ExtResource("12_etkrb")
+
+[node name="07" type="Sprite2D" parent="." unique_id=1094633112]
+position = Vector2(608, 1200)
+texture = ExtResource("13_fcx21")
+
+[node name="08" type="Sprite2D" parent="." unique_id=25925599]
+position = Vector2(912, 1336)
+texture = ExtResource("14_iy041")
+
+[node name="Bullet24x24Part10aFree" type="Sprite2D" parent="." unique_id=1319179059]
+position = Vector2(-272, 576)
+texture = ExtResource("15_j1jly")
+hframes = 24
+vframes = 15
+frame = 287
+
+[node name="Bullet24x24Part10aFree2" type="Sprite2D" parent="." unique_id=1775939934]
+position = Vector2(-608, 472)
+texture = ExtResource("15_j1jly")
+
+[node name="DungeonCharacter2" type="Sprite2D" parent="." unique_id=1458679791]
+position = Vector2(392, 224)
+texture = ExtResource("16_a885y")
+hframes = 7
+vframes = 2
+frame = 7
+
+[node name="Vampires1IdleFull" type="Sprite2D" parent="." unique_id=600530721]
+position = Vector2(560, 112)
+texture = ExtResource("17_ow7wm")
+
+[node name="DungeonCharacterAt" type="Sprite2D" parent="." unique_id=1990605823]
+position = Vector2(1408, 408)
+texture = ExtResource("18_ma3dn")
+
+[node name="EnemiesSkeleton2Attack" type="Sprite2D" parent="." unique_id=1426088065]
+position = Vector2(608, 272)
+texture = ExtResource("19_tirn5")

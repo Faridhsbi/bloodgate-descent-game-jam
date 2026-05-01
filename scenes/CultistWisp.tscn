@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bev6u6quu5h0g"]
+
+[ext_resource type="Script" uid="uid://blxsaob3x0f8q" path="res://scripts/cultist_wisp.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://b43fu4wpqbcwe" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_1.png" id="2_tex"]
+[ext_resource type="PackedScene" uid="uid://cd4mhlmf3r7fk" path="res://scenes/hud/WorldHealthBar.tscn" id="3_health"]
+[ext_resource type="AudioStream" uid="uid://0q1g5yodk2ae" path="res://audio/ghost_long.wav" id="4_move_sfx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wisp"]
+radius = 7.0
+
+[node name="CultistWisp" type="CharacterBody2D" unique_id=100074884]
+z_index = 1
+collision_layer = 4
+collision_mask = 17
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1309304715]
+modulate = Color(0.6, 0.92, 1, 1)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=20304034]
+shape = SubResource("CircleShape2D_wisp")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=122236507]
+collision_mask = 16
+
+[node name="WorldHealthBar" parent="." unique_id=174457809 instance=ExtResource("3_health")]
+position = Vector2(0, -12)
+
+[node name="MoveSfx" type="AudioStreamPlayer2D" parent="." unique_id=531209305]
+stream = ExtResource("4_move_sfx")
+volume_db = -11.44
+max_distance = 31.0
+
+[node name="HitSfx" type="AudioStreamPlayer2D" parent="." unique_id=2079398878]
+
+[editable path="WorldHealthBar"]

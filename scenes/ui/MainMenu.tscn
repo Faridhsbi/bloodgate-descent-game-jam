@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://chrfip8pej4n6"]
+
+[ext_resource type="Script" uid="uid://do4o3qfe76xst" path="res://scripts/ui/main_menu.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://ch56npg4ebel1" path="res://assets/bg2.png" id="2_bhu4a"]
+[ext_resource type="Texture2D" uid="uid://bxxrs0w4kkmdw" path="res://font/judul3.png" id="3_bhu4a"]
+[ext_resource type="AudioStream" uid="uid://xicefckgyxgx" path="res://audio/Goblins_Den_(Regular).wav" id="BGM_MAIN_MENU"]
+[ext_resource type="FontFile" uid="uid://cc1eoqnt6rqsf" path="res://font/Pixeled.ttf" id="Font"]
+[ext_resource type="PackedScene" uid="uid://b2546tbe501r2" path="res://scenes/ui/SettingsMenu.tscn" id="SettingsScene"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhu4a"]
+atlas = ExtResource("3_bhu4a")
+region = Rect2(265, 318, 1897, 758)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e2per"]
+load_path = "res://.godot/imported/MenuButton.png-a0cae35c707ffb12bc6c864e8f5787b7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7mi0g"]
+texture = SubResource("CompressedTexture2D_e2per")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(690, 454, 1014, 410)
+
+[node name="MainMenu" type="Control" unique_id=1024157264]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1894085333]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bhu4a")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=227595125]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.39144403, 0.5937389, 0.39526123, 0.102000006)
+
+[node name="Center" type="CenterContainer" parent="." unique_id=1963901985]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="NinePatchRect" parent="Center" unique_id=1712439788]
+custom_minimum_size = Vector2(235, 176)
+layout_mode = 2
+region_rect = Rect2(128, 32, 16, 15.795)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Margin" type="MarginContainer" parent="Center/Panel" unique_id=1870788858]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -123.5
+offset_right = 150.0
+offset_bottom = 123.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="List" type="VBoxContainer" parent="Center/Panel/Margin" unique_id=985433728]
+layout_mode = 2
+theme_override_constants/separation = -25
+alignment = 1
+
+[node name="Title" type="TextureRect" parent="Center/Panel/Margin/List" unique_id=1208368595]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+texture = SubResource("AtlasTexture_bhu4a")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="Center/Panel/Margin/List" unique_id=670376832]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="Center/Panel/Margin/List" unique_id=1132541170]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.31764707, 0.9882353, 0.49411765, 1)
+theme_override_colors/font_focus_color = Color(0.31764707, 0.9882353, 0.49411765, 1)
+theme_override_colors/font_hover_color = Color(0.83137256, 0.99607843, 0.47058824, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("Font")
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxTexture_7mi0g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7mi0g")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7mi0g")
+theme_override_styles/focus = SubResource("StyleBoxTexture_7mi0g")
+text = "START GAME"
+
+[node name="ContinueButton" type="Button" parent="Center/Panel/Margin/List" unique_id=2092844894]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.31764707, 0.9882353, 0.49411765, 1)
+theme_override_colors/font_hover_color = Color(0.8352941, 0.99607843, 0.4745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("Font")
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxTexture_7mi0g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7mi0g")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7mi0g")
+theme_override_styles/focus = SubResource("StyleBoxTexture_7mi0g")
+text = "CONTINUE"
+
+[node name="SettingsButton" type="Button" parent="Center/Panel/Margin/List" unique_id=1667033883]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.31764707, 0.9882353, 0.49411765, 1)
+theme_override_colors/font_hover_color = Color(0.8392157, 0.99215686, 0.5137255, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("Font")
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxTexture_7mi0g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7mi0g")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7mi0g")
+theme_override_styles/focus = SubResource("StyleBoxTexture_7mi0g")
+text = "SETTINGS"
+
+[node name="ExitButton" type="Button" parent="Center/Panel/Margin/List" unique_id=627095516]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.31764707, 0.9882353, 0.49411765, 1)
+theme_override_colors/font_hover_color = Color(0.827451, 1, 0.47843137, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("Font")
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxTexture_7mi0g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7mi0g")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7mi0g")
+theme_override_styles/focus = SubResource("StyleBoxTexture_7mi0g")
+text = "EXIT"
+
+[node name="MainMenuBGM" type="AudioStreamPlayer" parent="." unique_id=1512963946]
+stream = ExtResource("BGM_MAIN_MENU")
+volume_db = 2.072
+pitch_scale = 1.28
+bus = &"BGM"
+autoplay = true
+
+[node name="SettingsMenu" parent="." unique_id=861139014 instance=ExtResource("SettingsScene")]
+visible = false
+layout_mode = 1

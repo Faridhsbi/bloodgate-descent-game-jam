@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cax2m28ix2va"]
+
+[ext_resource type="Script" uid="uid://kofc4vwibdag" path="res://scripts/ui/menu_manager.gd" id="1_script"]
+
+[node name="MenuManager" type="CanvasLayer"]
+process_mode = 3
+layer = 90
+script = ExtResource("1_script")
+
+[node name="BrightnessOverlay" type="ColorRect" parent="."]
+z_index = 4096
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

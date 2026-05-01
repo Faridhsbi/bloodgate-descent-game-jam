@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://yfgt1lderdc2"]
+
+[node name="BossVampire" type="CharacterBody2D" unique_id=995634483]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1190015907]
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=2133978471]

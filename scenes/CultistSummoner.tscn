@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bd0cclnm37k66"]
+
+[ext_resource type="Script" uid="uid://c5dxouvdfgnxx" path="res://scripts/cultist_summoner.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://b365bg65tnu7m" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/vampire/v2/vampire_v2_1.png" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://dpeo6ayfepj7c" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Character_2.png" id="3_sheet"]
+[ext_resource type="PackedScene" uid="uid://cd4mhlmf3r7fk" path="res://scenes/hud/WorldHealthBar.tscn" id="4_health"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cultist"]
+
+[node name="CultistSummoner" type="CharacterBody2D" unique_id=1414840962]
+collision_layer = 4
+collision_mask = 16
+motion_mode = 1
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=123325465]
+modulate = Color(0.72, 0.8, 0.95, 1)
+scale = Vector2(1.12, 1.12)
+texture = ExtResource("2_tex")
+
+[node name="BlueFlameCrown" type="Sprite2D" parent="." unique_id=1293559157]
+modulate = Color(0.7, 1, 1.25, 0.95)
+position = Vector2(0, -9)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("3_sheet")
+hframes = 7
+vframes = 2
+frame = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1207731118]
+shape = SubResource("CircleShape2D_cultist")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=57608388]
+collision_mask = 16
+
+[node name="WorldHealthBar" parent="." unique_id=1650842322 instance=ExtResource("4_health")]
+position = Vector2(0, -17)
+
+[editable path="WorldHealthBar"]

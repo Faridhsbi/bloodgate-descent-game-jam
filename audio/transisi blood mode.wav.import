@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cbi4v25wco2wv"
+path="res://.godot/imported/transisi blood mode.wav-18173e8317d4bdb2601bc26e3eb930df.sample"
+
+[deps]
+
+source_file="res://audio/transisi blood mode.wav"
+dest_files=["res://.godot/imported/transisi blood mode.wav-18173e8317d4bdb2601bc26e3eb930df.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

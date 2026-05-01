@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://lcsbymmoeblo"]
+
+[ext_resource type="Script" uid="uid://c6dyu3wlos5i" path="res://scenes/final_door.gd" id="1_pvj3t"]
+[ext_resource type="Texture2D" uid="uid://bnvardunmnnfb" path="res://assets/Free-Undead-Tileset-Top-Down-Pixel-Art/PNG/Animation5.png" id="2_u34mt"]
+[ext_resource type="FontFile" uid="uid://cc1eoqnt6rqsf" path="res://font/Pixeled.ttf" id="3_u34mt"]
+[ext_resource type="AudioStream" uid="uid://8nkblarplsf1" path="res://audio/transisi level2 ke boss.wav" id="4_boss_transition"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_do22m"]
+size = Vector2(49, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqjnn"]
+size = Vector2(25, 34)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bxvn3"]
+radius = 508.01575
+
+[sub_resource type="LabelSettings" id="LabelSettings_do22m"]
+font = ExtResource("3_u34mt")
+font_size = 7
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_final_door_cine"]
+line_spacing = 0.0
+font = ExtResource("3_u34mt")
+font_size = 6
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="FinalDoor" type="StaticBody2D" unique_id=1203334806]
+collision_layer = 16
+collision_mask = 15
+script = ExtResource("1_pvj3t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1264408464]
+position = Vector2(2, 1)
+texture = ExtResource("2_u34mt")
+hframes = 6
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=25124842]
+position = Vector2(2, 15)
+shape = SubResource("RectangleShape2D_do22m")
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=1732686883]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=965292125]
+position = Vector2(1.5, 39)
+shape = SubResource("RectangleShape2D_dqjnn")
+
+[node name="PortalEffect" type="Polygon2D" parent="." unique_id=2077221891]
+color = Color(0.10670889, 0.8304032, 0.42207947, 1)
+polygon = PackedVector2Array(-6, 49, -6, 26, -2, 22, 5, 22, 9, 26, 9, 49)
+
+[node name="RoomDetector" type="Area2D" parent="." unique_id=671692291]
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDetector" unique_id=1739952246]
+position = Vector2(4, 15)
+shape = SubResource("CircleShape2D_bxvn3")
+
+[node name="PromptLabel" type="Label" parent="." unique_id=625342170]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -11.5
+offset_right = 52.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "ENTER BOSS ARENA"
+label_settings = SubResource("LabelSettings_do22m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=539082716]
+layer = 80
+
+[node name="Overlay" type="ColorRect" parent="CanvasLayer" unique_id=31562566]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0352941, 0, 0.012, 1)
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer" unique_id=973287025]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -48.0
+offset_right = 260.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_u34mt")
+theme_override_font_sizes/font_size = 12
+text = "THE BLOOD GATE OPENS"
+label_settings = SubResource("LabelSettings_final_door_cine")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="CanvasLayer" unique_id=1658146581]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_right = 270.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_u34mt")
+theme_override_font_sizes/font_size = 5
+text = "The vampire lord waits beyond the last chamber."
+label_settings = SubResource("LabelSettings_final_door_cine")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BossTransitionSfx" type="AudioStreamPlayer2D" parent="." unique_id=1699550161]
+stream = ExtResource("4_boss_transition")

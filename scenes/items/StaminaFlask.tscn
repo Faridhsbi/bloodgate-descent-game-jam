@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://yagl04ahf343"]
+
+[ext_resource type="Texture2D" uid="uid://3fntc437fpn1" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flasks/flasks_3_1.png" id="flask_0"]
+[ext_resource type="Texture2D" uid="uid://p1ya1qam8vwy" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flasks/flasks_3_2.png" id="flask_1"]
+[ext_resource type="Texture2D" uid="uid://cur5pug1pqrtt" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flasks/flasks_3_3.png" id="flask_2"]
+[ext_resource type="Texture2D" uid="uid://clvls0n0bhos" path="res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flasks/flasks_3_4.png" id="flask_3"]
+[ext_resource type="Script" uid="uid://c2xsdaip4ah4d" path="res://scripts/items/stamina_flask.gd" id="flask_script"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_flask"]
+animations = [{
+"frames": [{
+"duration": 1.2,
+"texture": ExtResource("flask_0")
+}, {
+"duration": 1.2,
+"texture": ExtResource("flask_1")
+}, {
+"duration": 1.2,
+"texture": ExtResource("flask_2")
+}, {
+"duration": 1.2,
+"texture": ExtResource("flask_3")
+}],
+"loop": true,
+"name": &"shimmer",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_flask"]
+
+[node name="StaminaFlask" type="Area2D" unique_id=1303089294]
+collision_layer = 4
+script = ExtResource("flask_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=258497572]
+sprite_frames = SubResource("SpriteFrames_flask")
+animation = &"shimmer"
+autoplay = "shimmer"
+frame_progress = 0.40928668
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2133241971]
+shape = SubResource("CircleShape2D_flask")
