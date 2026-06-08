@@ -16,10 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://dl5dam8gi6xum" path="res://scenes/ui/BossIntroCinematic.tscn" id="15_intro"]
 [ext_resource type="AudioStream" uid="uid://kxoij1tnv8io" path="res://audio/Goblins_Dance_(Battle).wav" id="16_boss_battle"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gevui"]
-atlas = ExtResource("13_j6e5n")
-region = Rect2(5, 8, 15, 8)
-
 [sub_resource type="Gradient" id="Gradient_vignette"]
 offsets = PackedFloat32Array(0, 0.6, 1)
 colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.2, 0, 0, 0, 0.8)
@@ -28,6 +24,10 @@ colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.2, 0, 0, 0, 0.8)
 gradient = SubResource("Gradient_vignette")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gevui"]
+atlas = ExtResource("13_j6e5n")
+region = Rect2(5, 8, 15, 8)
 
 [node name="BossArena" type="Node2D" unique_id=339516353]
 
@@ -44,18 +44,6 @@ tile_map_data = PackedByteArray("AAD//xYAAgAAAAQAAAD//xcAAgAAAAUAAAAAABUAAgABAAM
 tile_map_data = PackedByteArray("AAACAA0AAgABABgAAAADAA4AAgABABgAAAAEAA8AAgABABgAAAAFABAAAgABABgAAAAGABEAAgABABgAAAAHABIAAgABABgAAAAIABIAAgAFABcAAAAJABMAAgAJABcAAAAKABMAAgAIABcAAAAKABIAAgAIABYAAAALABIAAgAJABYAAAALABMAAgAJABcAAAAMABIAAgAIABYAAAAMABMAAgAIABcAAAANABIAAgAMABYAAAAOABIAAgANABYAAAAPABIAAgAOABYAAAAPABMAAgAOABcAAAAQABIAAgALABYAAAAQABMAAgALABcAAAARABIAAgAMABYAAAARABMAAgAMABcAAAASABIAAgANABYAAAATABEAAgAIABcAAAAUABAAAgAIABcAAAAVAA8AAgAIABcAAAAWAA4AAgAIABcAAAAWAA0AAgAXABgAAAAWAAsAAgAXABgAAAAWAAwAAgAXABgAAAAWAAoAAgADABYAAAAVAAkAAgADABYAAAAUAAgAAgADABYAAAATAAcAAgADABYAAAASAAYAAgADABYAAAAPAAQAAgACABUAAAAPAAUAAgACABYAAAAOAAQAAgACABUAAAAOAAUAAgACABYAAAANAAQAAgAEACAAAAAMAAMAAgAEACAAAAALAAMAAgADACAAAAAKAAQAAgADACAAAAAJAAQAAgACABUAAAAJAAUAAgACABYAAAAIAAQAAgACABUAAAAIAAUAAgACABYAAAAHAAUAAgABABYAAAAGAAYAAgABABYAAAAFAAcAAgABABYAAAAEAAgAAgABABYAAAADAAkAAgABABYAAAACAAoAAgABABYAAAACAAsAAgABABcAAAACAAwAAgABABcAAAARAAUAAgADABYAAAAQAAQAAgACABUAAAAQAAUAAgACABYAAAARAAQAAgADABUAAAA=")
 
 [node name="BaseDungeon2" parent="BaseDungeon" unique_id=517389529 instance=ExtResource("1_tq6w5")]
-
-[node name="VignetteLayer" type="CanvasLayer" parent="."]
-layer = 5
-
-[node name="TextureRect" type="TextureRect" parent="VignetteLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = SubResource("GradientTexture2D_vignette")
 
 [node name="Decoration" parent="BaseDungeon/BaseDungeon2" index="0" unique_id=1174535625]
 tile_map_data = PackedByteArray("AAAGAPn/AwAUAAUAAAAIAA8AAwAeACIAAAAIABAAAwAeACMAAAAJAA8AAwAfACIAAAAJABAAAwAfACMAAAAJABEAAwAfACQAAAAKABAAAwAgACMAAAAKABEAAwAgACQAAAAGAAwAAwAbACUAAAAGAA0AAwAbACYAAAAHAAwAAwAcACUAAAAHAA0AAwAcACYAAAATAAsAAwAbACcAAAATAAwAAwAbACgAAAAUAAsAAwAcACcAAAAUAAwAAwAcACgAAAAPAAUAAwAGACkAAAAPAAYAAwAGACoAAAAPAAcAAwAGACsAAAAQAAUAAwAHACkAAAAQAAYAAwAHACoAAAAQAAcAAwAHACsAAAARAAUAAwAIACkAAAARAAYAAwAIACoAAAARAAcAAwAIACsAAAAUAAoAAwASACsAAAAIAAkAAwAZACsAAAACAAQAAwAuACAAAAACAAUAAwAuACEAAAADAAQAAwAvACAAAAADAAUAAwAvACEAAAABAAMAAwAtAB8AAAABAAQAAwAtACAAAAABAAUAAwAtACEAAAACAAMAAwAuAB8AAAAWAAIAAwAqACIAAAAWAAMAAwAqACMAAAAWAAQAAwAqACQAAAAXAAIAAwArACIAAAAXAAMAAwArACMAAAAXAAQAAwArACQAAAAAABEAAwAnABcAAAAAABIAAwAnABgAAAAAABMAAwAnABkAAAAAABQAAwAnABoAAAABABEAAwAoABcAAAABABIAAwAoABgAAAABABMAAwAoABkAAAABABQAAwAoABoAAAACABEAAwApABcAAAACABIAAwApABgAAAACABMAAwApABkAAAACABQAAwApABoAAAAWABEAAwAqAAcAAAAWABIAAwAqAAgAAAAWABMAAwAqAAkAAAAWABQAAwAqAAoAAAAXABEAAwArAAcAAAAXABIAAwArAAgAAAAXABMAAwArAAkAAAAXABQAAwArAAoAAAA=")
@@ -89,6 +77,18 @@ texture = ExtResource("6_t61d7")
 position = Vector2(242.5, 4.5)
 scale = Vector2(0.59375, 0.53125)
 texture = ExtResource("7_tfclm")
+
+[node name="VignetteLayer" type="CanvasLayer" parent="." unique_id=265928056]
+layer = 5
+
+[node name="TextureRect" type="TextureRect" parent="VignetteLayer" unique_id=17675645]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_vignette")
 
 [node name="Animated" parent="." unique_id=1968275355 instance=ExtResource("12_sgv70")]
 position = Vector2(192, 2.842171e-14)
@@ -132,6 +132,7 @@ z_index = 2
 position = Vector2(213, 273)
 stamina_drain_sprint = 75.0
 stamina_regen = 10.0
+invulnerability_duration = 3.0
 
 [node name="PlayerUi" parent="." unique_id=524931330 instance=ExtResource("12_j6e5n")]
 icon_default = SubResource("AtlasTexture_gevui")
@@ -140,8 +141,8 @@ icon_default = SubResource("AtlasTexture_gevui")
 
 [node name="BossBattleMusic" type="AudioStreamPlayer" parent="." unique_id=1301037601 groups=["scene_music"]]
 stream = ExtResource("16_boss_battle")
-bus = &"BGM"
 autoplay = true
+bus = &"BGM"
 
 [editable path="BaseDungeon"]
 [editable path="BaseDungeon/BaseDungeon2"]
