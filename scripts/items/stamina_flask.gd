@@ -15,8 +15,15 @@ func _on_body_entered(body: Node2D):
 		if body.current_stamina >= body.max_stamina:
 			return
 		
-		body.current_stamina = body.max_stamina
-		body.is_exhausted = false
+		if body.has_method("restore_stamina_full"):
+			body.restore_stamina_full()
+		else:
+			body.current_stamina = body.max_stamina
+			body.is_exhausted = false
+			body.exhausted_timer = 0.0
+			if body.ui:
+				body.ui.update_stamina(body.current_stamina, true)
+				body.ui.set_exhausted_effect(false)
 		print("Stamina dipulihkan ke 100!")
 		_play_sfx(SFX_STAMINA)
 		queue_free()
