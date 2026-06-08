@@ -19,14 +19,12 @@ var _current_state: TrapState = TrapState.HIDDEN
 var _players_in_trap: Array[Node2D] = []
 
 # --- NODE REFERENCES ---
-# DIUBAH: Menyesuaikan nama dan tipe node dengan yang ada di Scene Tree Anda
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var cycle_timer: Timer = $CycleTimer
 @onready var damage_timer: Timer = $DamageTimer
 @onready var spike_sfx: AudioStreamPlayer2D = $SpikeSfx
 
 func _ready() -> void:
-	# Set animasi ke "spike" dan pastikan mulai dari frame 0 (tertutup)
 	anim_sprite.animation = "spike"
 	anim_sprite.frame = 0
 	
