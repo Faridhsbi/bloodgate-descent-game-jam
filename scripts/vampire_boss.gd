@@ -341,6 +341,8 @@ func _process_hurt(_delta: float):
 # ============================================================
 func _change_state(new_state: State):
 	current_state = new_state
+	if current_state != State.SHADOW_STEP:
+		sprite.visible = true
 	
 	match current_state:
 		State.IDLE:
@@ -377,14 +379,16 @@ func _change_state(new_state: State):
 			shadow_timer = 2.5
 			shadow_angle = 0.0
 			_play_sfx(SFX_SHADOW_MODE)
-			sprite.modulate.a = 0.0  # Boss invisible
+			damage_flash_timer = 0.0
+			sprite.modulate = Color.WHITE
+			sprite.visible = false
 			shadow_sprite.visible = true
 			shadow_sprite.texture = tex_shadow
 			shadow_sprite.hframes = 4
 			_set_anim(tex_idle, 4, 0, 3, true, 0.1)
 		
 		State.SHADOW_EMERGE:
-			sprite.modulate.a = 1.0
+			sprite.visible = true
 			sprite.modulate = Color.WHITE
 			shadow_sprite.visible = false
 			shadow_hitbox.visible = false
@@ -399,6 +403,10 @@ func _change_state(new_state: State):
 			_set_anim(tex_hurt, 4, 0, 3, false, 0.08)
 		
 		State.DEAD:
+			sprite.visible = true
+			shadow_sprite.visible = false
+			shadow_hitbox.visible = false
+			shadow_hitbox.monitoring = false
 			# Kita tambahkan parameter volume_db, misalnya 10.0 untuk membuatnya lebih keras
 			_play_sfx(SFX_VAMPIRE_DEATH, 20.0)
 			_set_anim(tex_death, 11, 0, 10, false, 0.1)
