@@ -67,6 +67,12 @@ shader_parameter/vignette_color = Color(0.6901961, 0, 0, 1)
 shader_parameter/inner_radius = 0.25
 shader_parameter/outer_radius = 0.85
 
+[sub_resource type="LabelSettings" id="LabelSettings_2sote"]
+font = ExtResource("3_ppene")
+font_size = 5
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [node name="PlayerUi" type="CanvasLayer" unique_id=524931330 groups=["player_ui"]]
 script = ExtResource("1_5wubu")
 
@@ -93,10 +99,10 @@ patch_margin_bottom = 2
 
 [node name="HealthBar" type="TextureProgressBar" parent="Control" unique_id=710821942]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 5.0
-offset_right = 60.0
-offset_bottom = 17.0
+offset_left = 28.000002
+offset_top = 13.999999
+offset_right = 66.0
+offset_bottom = 26.0
 scale = Vector2(1.4831998, 1.3798002)
 value = 100.0
 texture_over = SubResource("AtlasTexture_ppene")
@@ -105,10 +111,10 @@ texture_progress_offset = Vector2(3, 3)
 
 [node name="DashBar" type="TextureProgressBar" parent="Control" unique_id=73284623]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 30.0
-offset_right = 58.0
-offset_bottom = 35.0
+offset_left = 32.0
+offset_top = 39.0
+offset_right = 64.0
+offset_bottom = 44.0
 scale = Vector2(1.279999, 1.36)
 step = 0.01
 value = 100.0
@@ -116,10 +122,10 @@ texture_progress = SubResource("AtlasTexture_4cc2r")
 
 [node name="StaminaBar" type="TextureProgressBar" parent="Control" unique_id=1453562128]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 24.0
-offset_right = 60.0
-offset_bottom = 35.0
+offset_left = 28.0
+offset_top = 33.0
+offset_right = 66.0
+offset_bottom = 44.0
 scale = Vector2(1.279999, 1.36)
 value = 100.0
 texture_over = SubResource("AtlasTexture_5wubu")
@@ -341,15 +347,33 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.9380158, 3.8023293e-06, 9.62615e-07, 1)
 
+[node name="LivesLabel" type="Label" parent="." unique_id=1817600377]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -109.0
+offset_right = -117.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "LIVES: 3"
+label_settings = SubResource("LabelSettings_2sote")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Health" type="Sprite2D" parent="." unique_id=388556731]
-position = Vector2(12.000001, 13.375)
-scale = Vector2(2.0000002, 1.84375)
+position = Vector2(13, 22.5)
+scale = Vector2(2.25, 2.125)
 texture = ExtResource("2_int0i")
 region_enabled = true
 region_rect = Rect2(64, 64, 8, 8)
 
 [node name="Stamina" type="Sprite2D" parent="." unique_id=2111273909]
-position = Vector2(11.999999, 31)
+position = Vector2(13, 41)
 scale = Vector2(2.1666665, 2.0000002)
 texture = ExtResource("2_int0i")
 region_enabled = true

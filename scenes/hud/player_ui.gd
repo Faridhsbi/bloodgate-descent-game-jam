@@ -12,6 +12,7 @@ class_name PlayerUI
 @onready var key_inventory: Control = $Control/KeyInventory
 @onready var key_glow: ColorRect = $Control/KeyInventory/KeyGlow
 @onready var key_icon: TextureRect = $Control/KeyInventory/KeyFrame/KeyIcon
+@onready var lives_label: Label = $LivesLabel
 var _health_tween: Tween
 var _stamina_tween: Tween
 var _key_tween: Tween
@@ -25,10 +26,11 @@ var icon_fireball = preload("res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pi
 
 func _ready() -> void:
 	set_has_dungeon_key(false, true)
+	update_lives(3, 3)
 	_create_exhausted_label()
 
 # Tambahkan max_dash_cd di parameter
-func initialize_player(max_hp: float, max_stamina: float, max_dash_cd: float) -> void:
+func initialize_player(max_hp: float, max_stamina: float, max_dash_cd: float, max_lives: int) -> void:
 	health_bar.max_value = max_hp
 	health_bar.value = max_hp
 	
@@ -38,6 +40,7 @@ func initialize_player(max_hp: float, max_stamina: float, max_dash_cd: float) ->
 	# Setup Dash Bar
 	dash_bar.max_value = max_dash_cd
 	dash_bar.value = max_dash_cd # Bar penuh = Dash siap digunakan
+	update_lives(max_lives, max_lives)
 
 func update_health(new_hp: float) -> void:
 	if _health_tween and _health_tween.is_running():
@@ -58,6 +61,12 @@ func update_stamina(new_stamina: float, is_instant: bool = false) -> void:
 func update_dash_cooldown(current_cd: float, max_cd: float) -> void:
 	# Bar akan kosong saat cooldown dimulai, lalu terisi seiring waktu
 	dash_bar.value = max_cd - current_cd
+
+func update_lives(current_lives: int, max_lives: int) -> void:
+	if not lives_label:
+		return
+	lives_label.text = "LIVES: %d" % clampi(current_lives, 0, max_lives)
+	lives_label.visible = true
 	
 func set_exhausted_effect(is_exhausted: bool) -> void:
 	# Matikan tween lama jika ada agar tidak bentrok

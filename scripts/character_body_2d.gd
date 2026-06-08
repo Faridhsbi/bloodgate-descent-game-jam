@@ -23,7 +23,15 @@ var exhausted_timer: float = 0.0
 # --- PROPERTI DARAH (HP) ---
 @export var max_hp: float = 100.0
 var current_hp: float = max_hp
+@export var max_lives: int = 3
+var current_lives: int = max_lives
 var damage_flash_timer: float = 0.0
+@export var invulnerability_duration: float = 1.0
+@export var invulnerability_blink_interval: float = 0.12
+var invulnerability_timer: float = 0.0
+var invulnerability_blink_timer: float = 0.0
+var is_invulnerable: bool = false
+var _invulnerability_blink_on: bool = true
 
 # --- PROPERTI ATTACK (PROJECTILE & FIREBALL) ---
 var fireball_ammo: int = 0
@@ -69,7 +77,8 @@ func _ready() -> void:
 			await ui.ready
 		# ------------------------------
 			
-		ui.initialize_player(max_hp, max_stamina, dash_cooldown_max)
+		ui.initialize_player(max_hp, max_stamina, dash_cooldown_max, max_lives)
+		ui.update_lives(current_lives, max_lives)
 		ui.update_weapon_display(fireball_ammo)
 	if _footstep_player:
 		_footstep_player.stream = SFX_FOOTSTEP
@@ -89,8 +98,10 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		_set_footsteps_playing(false)
 		return
-		
-	if damage_flash_timer > 0:
+
+	_update_invulnerability(delta)
+
+	if damage_flash_timer > 0 and not is_invulnerable:
 		damage_flash_timer -= delta
 		if damage_flash_timer <= 0:
 			sprite.modulate = Color.WHITE
@@ -238,19 +249,10 @@ func _handle_movement(_delta: float) -> void:
 	_handle_pushing()
 
 # Panggil fungsi ini jika karakter terkena hitbox serangan boss atau ledakan tong
-func die() -> void:
-	if is_dead: return
-	is_dead = true
-	velocity = Vector2.ZERO
-	anim_state.start("Death")
-	_play_sfx(SFX_DEATH, 0.0)
-	var menu_manager := get_node_or_null("/root/MenuManager")
-	if menu_manager:
-		menu_manager.call_deferred("show_game_over_after_delay", 1.7)
-
 # --- SISTEM PERTARUNGAN ---
 func take_damage(amount: float) -> void:
-	if is_dead: return
+	if is_dead or is_invulnerable:
+		return
 	
 	current_hp -= amount
 	print("Pemain terkena serangan! Sisa HP: ", current_hp)
@@ -262,7 +264,62 @@ func take_damage(amount: float) -> void:
 	
 	if current_hp <= 0:
 		current_hp = 0
-		die()
+		_lose_life()
+
+func _lose_life() -> void:
+	if is_dead:
+		return
+
+	current_lives -= 1
+	if ui:
+		ui.update_lives(current_lives, max_lives)
+
+	if current_lives > 0:
+		current_hp = max_hp
+		if ui:
+			ui.update_health(current_hp)
+		sprite.modulate = Color.WHITE
+		damage_flash_timer = 0.0
+		_start_invulnerability(invulnerability_duration)
+		return
+
+	die()
+
+func _start_invulnerability(duration: float) -> void:
+	is_invulnerable = true
+	invulnerability_timer = duration
+	invulnerability_blink_timer = 0.0
+	_invulnerability_blink_on = true
+	sprite.modulate = Color(1, 1, 1, 0.35)
+
+func _update_invulnerability(delta: float) -> void:
+	if not is_invulnerable:
+		return
+
+	invulnerability_timer -= delta
+	invulnerability_blink_timer -= delta
+	if invulnerability_blink_timer <= 0.0:
+		invulnerability_blink_timer = invulnerability_blink_interval
+		_invulnerability_blink_on = not _invulnerability_blink_on
+		sprite.modulate = Color(1, 1, 1, 1.0 if _invulnerability_blink_on else 0.35)
+
+	if invulnerability_timer <= 0.0:
+		is_invulnerable = false
+		invulnerability_timer = 0.0
+		invulnerability_blink_timer = 0.0
+		_invulnerability_blink_on = true
+		sprite.modulate = Color.WHITE
+
+func die() -> void:
+	if is_dead:
+		return
+	is_dead = true
+	velocity = Vector2.ZERO
+	anim_state.start("Death")
+	_play_sfx(SFX_DEATH, 0.0)
+	var menu_manager := get_node_or_null("/root/MenuManager")
+	if menu_manager:
+		menu_manager.call_deferred("show_game_over_after_delay", 1.7)
 		
 # Di dalam player.gd
 func heal(amount: float) -> void:
@@ -331,6 +388,14 @@ func add_fireball_ammo(amount: int) -> void:
 	# Beritahu UI untuk mengubah ikon dan angka!
 	if ui:
 		ui.update_weapon_display(fireball_ammo)
+
+func restore_stamina_full() -> void:
+	current_stamina = max_stamina
+	is_exhausted = false
+	exhausted_timer = 0.0
+	if ui:
+		ui.update_stamina(current_stamina, true)
+		ui.set_exhausted_effect(false)
 
 func _set_footsteps_playing(playing: bool) -> void:
 	if not _footstep_player:
