@@ -442,6 +442,7 @@ shape = SubResource("RectangleShape2D_dov25")
 position = Vector2(208, 464)
 sprint_speed = 150.0
 stamina_regen = 15.0
+invulnerability_duration = 3.0
 
 [node name="PlayerUi" parent="." unique_id=524931330 instance=ExtResource("17_mlye1")]
 icon_default = SubResource("AtlasTexture_u7ucq")

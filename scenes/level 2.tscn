@@ -450,6 +450,7 @@ position = Vector2(392, 296)
 z_index = 2
 position = Vector2(-504, 352)
 stamina_regen = 13.0
+invulnerability_duration = 3.0
 
 [node name="PlayerUi" parent="." unique_id=1266010686 instance=ExtResource("20_ui")]
 icon_default = SubResource("AtlasTexture_weapon")
